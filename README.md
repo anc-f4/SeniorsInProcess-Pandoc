@@ -1565,3 +1565,109 @@ Esta organización permite conservar límites de responsabilidad a nivel de pers
 ```{=typst}
 #pagebreak()
 ```
+
+
+```{=typst}
+#pagebreak()
+```
+
+## 4.7. Software Object-Oriented Design
+
+El diseño orientado a objetos se organiza de acuerdo con los Bounded Contexts identificados en el Design-Level EventStorming y con los módulos de soporte necesarios para mantener trazabilidad con las User Stories del Capítulo III. Los nombres de clases, atributos, métodos e interfaces se mantienen en inglés y se especifican relaciones, multiplicidades y visibilidad de miembros.
+
+### 4.7.1. Class Diagrams
+
+#### Patients
+Modela la admisión clínica y clasificación funcional del paciente amputado. El agregado Patient actúa como Aggregate Root y contiene los objetos de valor PatientId, Dni, AmputationLevel, KLevel y ProsthesisCode. Se relaciona con MedicalRecord para registrar antecedentes e historial clínico. PatientApplicationService coordina los comandos de registro, asignación de nivel funcional y vinculación de prótesis interactuando con IPatientRepository.
+
+**Class Diagram - Patients:**
+
+![](../SeniorsInProcess-Pandoc/assets/class_diagram_patients.png){ width=90% }
+
+\
+
+#### Prescription
+Modela la prescripción terapéutica individualizada y la dosificación de rutinas domiciliarias. La raíz de agregado TherapeuticPrescription gestiona el conjunto de ejercicios prescritos mediante la entidad PlanExercise, la cual encapsula series, repeticiones y frecuencia semanal. ThresholdProfile gestiona los límites basales configurados de inclinación coronal y fuerza de impacto de talón.
+
+**Class Diagram - Prescription:**
+
+![](../SeniorsInProcess-Pandoc/assets/class_diagram_prescription.png){ width=90% }
+
+\
+
+#### Monitoring
+Modela la ingesta continua de señales inerciales y el control cinemático de la marcha. La raíz de agregado GaitSession coordina el ciclo de vida de la sesión (iniciada, concluida, interrumpida por enlace BLE), la calibración en cero angular y la recepción de paquetes TelemetryPacket100Hz con mediciones de inclinación coronal, ángulo sagital e impacto de talón en fuerzas G. ClinicalAlert representa los eventos emitidos ante desviaciones biomecánicas para su inspección y resolución clínica.
+
+**Class Diagram - Monitoring:**
+
+![](../SeniorsInProcess-Pandoc/assets/class_diagram_monitoring.png){ width=90% }
+
+\
+
+#### Analytics
+Modela la consolidación de series temporales, métricas de simetría bilateral, adherencia al tratamiento y formalización del informe clínico mensual. La raíz de agregado ClinicalReport encapsula las recomendaciones médicas redactadas por el fisioterapeuta, la referencia al dataset crudo exportado en formato CSV y el objeto de valor DigitalSignature con código de colegiatura profesional y hash de autenticidad.
+
+**Class Diagram - Analytics:**
+
+![](../SeniorsInProcess-Pandoc/assets/class_diagram_analytics.png){ width=90% }
+
+\
+
+#### Workshop
+Modela el parque de dispositivos protésicos y la gestión de mantenimiento preventivo y correctivo. La raíz de agregado ProsthesisAsset supervisa el número de serie, ciclos acumulados de flexión/paso y conmutación de estado de salud (óptimo, preventivo al 60%, crítico por fatiga). La raíz de agregado MaintenanceOrder coordina el agendamiento técnico de citas, apertura de órdenes de trabajo, reemplazo de componentes (cilindro hidráulico) mediante TechnicalIntervention y conclusión del mantenimiento con restauración al estado óptimo.
+
+**Class Diagram - Workshop:**
+
+![](../SeniorsInProcess-Pandoc/assets/class_diagram_workshop.png){ width=90% }
+
+\
+
+#### Communication
+Modela la transmisión segura y confidencial de información clínica hacia talleres y centros ortopédicos externos. La raíz de agregado WorkshopTransmission administra la configuración de módulos confidenciales para anonimización de datos sensibles del paciente, el algoritmo de cifrado aplicado, el estado de envío y el registro de confirmación de recepción técnica. Adicionalmente, InAppMessage soporta la mensajería interna entre el paciente y el equipo de rehabilitación para interconsultas.
+
+**Class Diagram - Communication:**
+
+![](../SeniorsInProcess-Pandoc/assets/class_diagram_communication.png){ width=90% }
+
+---
+
+### Módulos de Soporte
+
+* **Identity & Access Management:** El modelo concentra UserAccount, UserSession y PasswordResetRequest. IdentityService implementa IIdentityService y coordina registro, autenticación JWT, administración de sesiones y recuperación de credenciales.
+* **Subscriptions & Payment Management:** SubscriptionPlan representa la oferta contratada por una clínica, ClinicSubscription representa su acceso vigente y SoftwareLicense representa la licencia otorgada a un centro ortopédico. PaymentTransaction registra el resultado de cada operación de pago.
+* **Public Lead Management:** DemoRequest y NewsletterSubscription representan los flujos públicos de captación utilizados en la Landing Page, persistiendo prospectos institucionales.
+
+---
+
+## 4.8. Database Design
+
+El diseño de base de datos utiliza PostgreSQL como DBMS relacional y conserva la separación lógica establecida por los Bounded Contexts identificados en el Design-Level EventStorming. Se utiliza `lowercase_snake_case` para tablas y columnas, UUID para identificadores, TIMESTAMPTZ para instantes temporales, DATE para fechas y NUMERIC para valores biomecánicos de precisión.
+
+### 4.8.1. Database Diagrams
+
+#### Relational Database Model Diagram
+
+Representa la estructura relacional integral de Prothia Platform en PostgreSQL 16, mostrando las tablas principales de cada Bounded Context y la trazabilidad de referencias lógicas entre pacientes, prescripciones, sesiones telemétricas, reportes, prótesis y transmisiones técnicas.
+
+**Database Diagram - Relational Database Model:**
+
+![](../SeniorsInProcess-Pandoc/assets/erd_database_model.png){ width=95% }
+
+---
+
+### Esquemas de Persistencia por Bounded Context
+
+* **Patients (`patients`):** Persiste los datos de admisión clínica de pacientes amputados y sus expedientes médicos basales mediante las tablas `patients` y `medical_records`. El DNI del paciente es único y se restringe el nivel de amputación y el nivel funcional K mediante restricciones CHECK.
+* **Prescription (`prescription`):** Persiste las prescripciones terapéuticas domiciliarias y los ejercicios dosificados mediante `therapeutic_prescriptions` y `prescription_exercises`, además de almacenar los límites basales en `threshold_profiles`.
+* **Monitoring (`monitoring`):** Persiste las sesiones de marcha domiciliaria en `gait_sessions`, las mediciones inerciales a 100 Hz en `telemetry_measurements` y las alertas críticas emitidas por desviación biomecánica en `clinical_alerts`. Se indexa la combinación de sesión y número de secuencia.
+* **Analytics (`analytics`):** Persiste los reportes clínicos mensuales en `clinical_reports`, registrando las puntuaciones de simetría bilateral, porcentaje de adherencia, recomendaciones médicas y la firma digital del fisioterapeuta con número de colegiatura.
+* **Workshop (`workshop`):** Persiste el parque de prótesis en `prosthesis_assets`, controlando ciclos acumulados y límite de fatiga, las órdenes de mantenimiento en `work_orders` y las intervenciones técnicas con recambio de piezas en `technical_interventions`. El número de serie de cada prótesis es único.
+* **Communication (`communication`):** Persiste las transmisiones cifradas a centros ortopédicos externos en `workshop_transmissions`, controlando la anonimización de DNI y acuse de recibo técnico, así como los mensajes de interconsulta en `in_app_messages`.
+* **Identity & Access Management (`identity_access`):** Persiste cuentas de usuario, sesiones y solicitudes de recuperación de contraseña con control de caducidad e invalidación de tokens.
+* **Subscriptions & Payment Management (`subscriptions_payments`):** Persiste planes de suscripción, suscripciones de clínicas, licencias de software y transacciones de pago con validación CHECK de exclusión mutua.
+* **Public Lead Management (`public_leads`):** Persiste las solicitudes de demostración y las suscripciones al newsletter provenientes de la Landing Page con restricción de unicidad de correos.
+
+```{=typst}
+#pagebreak()
+```
+
