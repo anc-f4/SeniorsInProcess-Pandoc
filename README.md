@@ -49,6 +49,7 @@ U202417417 | Barrenechea Bustamante, Rafael
 ```
 ```{=typst}
 #pagebreak()
+#show figure: set block(breakable: true)
 #set table(
   columns: (1fr, 2fr, 3fr, 6fr),
   stroke: 0.5pt + luma(150),
@@ -201,6 +202,7 @@ El informe se elaboró de manera colaborativa utilizando Git y GitHub como plata
 
 ```{=typst}
 #pagebreak()
+#show figure: set block(breakable: true)
 #set text(size: 8.5pt)
 #set table(
   columns: (2.2fr, 5fr, 2.8fr),
@@ -393,6 +395,7 @@ Prothia busca cubrir esta necesidad mediante una plataforma web que recopile, pr
 
 ```{=typst}
 #set text(size: 8pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (1fr, 1.2fr, 1fr),
   stroke: 0.5pt + luma(180),
@@ -407,6 +410,7 @@ Prothia busca cubrir esta necesidad mediante una plataforma web que recopile, pr
 \
 
 ```{=typst}
+#show figure: set block(breakable: true)
 #set table(
   columns: (1fr, 1fr),
   stroke: 0.5pt + luma(180),
@@ -421,6 +425,7 @@ Prothia busca cubrir esta necesidad mediante una plataforma web que recopile, pr
 \
 
 ```{=typst}
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.1fr, 1fr, 1fr),
   stroke: 0.5pt + luma(180),
@@ -498,6 +503,7 @@ SWORD Health es una plataforma integral de terapia física digital y telerehabil
 
 ```{=typst}
 #set text(size: 7.5pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.5fr, 1.8fr, 2.5fr, 2.5fr, 2.5fr, 2.5fr),
   stroke: 0.5pt + luma(180),
@@ -796,6 +802,7 @@ José produce entre 4 y 6 prótesis mensuales y efectúa alineaciones continuas.
 
 ```{=typst}
 #set text(size: 7.5pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (3fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr),
   stroke: 0.5pt + luma(180),
@@ -895,6 +902,7 @@ José produce entre 4 y 6 prótesis mensuales y efectúa alineaciones continuas.
 ## 2.5. Ubiquitous Language
 
 ```{=typst}
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.3fr, 3fr),
   stroke: 0.5pt + luma(180),
@@ -942,6 +950,7 @@ Las historias de usuario para este proyecto se crearon en colaboración con el e
 
 ```{=typst}
 #set text(size: 7.2pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (1fr, 1.8fr, 2.5fr, 4.5fr, 0.8fr),
   stroke: 0.5pt + luma(180),
@@ -1036,6 +1045,7 @@ Para mantener el proyecto organizado, se empleó la escala de Fibonacci (1, 2, 3
 
 ```{=typst}
 #set text(size: 8.5pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (0.8fr, 1.2fr, 4fr, 5fr, 1.2fr),
   stroke: 0.5pt + luma(180),
@@ -1660,6 +1670,7 @@ La gestión en **SeniorsInProcess (Prothia)** incluye el código fuente, documen
 
 ```{=typst}
 #set text(size: 7.5pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.5fr, 1.2fr, 2fr, 3.5fr, 1.2fr, 2fr),
   stroke: 0.5pt + luma(180),
@@ -1751,6 +1762,7 @@ Durante este primer sprint, el equipo se enfocó en la implementación de la Lan
 #### 5.2.1.1. Sprint Planning 1 
 
 ```{=typst}
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.5fr, 3.5fr),
   stroke: 0.5pt + luma(180),
@@ -1800,6 +1812,7 @@ Para organizar el flujo de trabajo, las tareas se gestionaron mediante **Trello*
 
 ```{=typst}
 #set text(size: 8pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.8fr, 1fr, 0.8fr, 2.5fr, 1fr),
   stroke: 0.5pt + luma(180),
@@ -1861,6 +1874,7 @@ Durante el Sprint 2, el equipo enfocó su trabajo en aplicar mejoras a la Landin
 #### 5.2.2.1. Sprint Planning 2
 
 ```{=typst}
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.5fr, 3.5fr),
   stroke: 0.5pt + luma(180),
@@ -1900,6 +1914,7 @@ Durante el Sprint 2, el equipo enfocó su trabajo en aplicar mejoras a la Landin
 
 ```{=typst}
 #set text(size: 7.5pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (0.8fr, 2.2fr, 1.2fr, 2.5fr, 0.6fr, 1.1fr, 0.7fr),
   stroke: 0.5pt + luma(180),
@@ -1941,6 +1956,7 @@ Durante el Sprint 2, el equipo enfocó su trabajo en aplicar mejoras a la Landin
 
 ```{=typst}
 #set text(size: 7.5pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.5fr, 1.8fr, 0.8fr, 2.8fr, 3fr),
   stroke: 0.5pt + luma(180),
@@ -2065,6 +2081,7 @@ Durante el Sprint 2 se implementaron los servicios de consumo HTTP en el fronten
 
 ```{=typst}
 #set text(size: 7.2pt)
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.5fr, 0.8fr, 2.2fr, 2.5fr, 3fr),
   stroke: 0.5pt + luma(180),
@@ -2102,6 +2119,7 @@ Durante el Sprint 2 se implementaron los servicios de consumo HTTP en el fronten
 #### 5.2.2.8. Team Collaboration Insights during Sprint
 
 ```{=typst}
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.5fr, 1.2fr, 3.5fr),
   stroke: 0.5pt + luma(180),
@@ -2188,6 +2206,7 @@ git push origin main
 #### Verificación post-despliegue
 
 ```{=typst}
+#show figure: set block(breakable: true)
 #set table(
   columns: (1.5fr, 3.5fr),
   stroke: 0.5pt + luma(180),
