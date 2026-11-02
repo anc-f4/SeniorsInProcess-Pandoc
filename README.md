@@ -291,7 +291,7 @@ De esta manera, SeniorsInProcess busca generar valor para cada uno de sus segmen
 | **Código del Estudiante** | u20241i469 |
 | **Carrera** | Ingeniería de Software |
 | **Descripción** | Mi nombre es Camila Patricio. Tengo 20 años, soy estudiante de Ingeniería de Software y considero que mis principales fortalezas son la responsabilidad, el compromiso y la disposición para aprender constantemente. Puedo aportar a mi grupo habilidades en programación, análisis de problemas y búsqueda de soluciones creativas. Además, me caracterizo por trabajar en equipo de manera colaborativa y organizada. Mi propósito es aportar mis conocimientos y esfuerzo para que logremos juntos los objetivos de nuestro proyecto. |
-| **Foto** | ![](../assets/AnaCamila.png){ width=130px } |
+| **Foto** | ![](../SeniorsInProcess-Pandoc/assets/AnaCamila.png){ width=130px } |
 
 \
 
@@ -301,7 +301,7 @@ De esta manera, SeniorsInProcess busca generar valor para cada uno de sus segmen
 | **Código del Estudiante** | U20231E492 |
 | **Carrera** | Ingeniería de Software |
 | **Descripción** | Mi nombre es Oscar Diego Checa Burga con código de alumno u20231e492. Soy estudiante de la carrera de ingeniería de software de 5to ciclo, interesado en el desarrollo de soluciones tecnológicas. Destaco por mi trabajo en equipo y comunicación constante. Tengo conocimiento en base de datos, desarrollo de aplicaciones y programación. Me gusta ir adaptándome a las nuevas tecnologías y aprender de estas, para poder desarrollar más en el ámbito profesional. |
-| **Foto** | ![](../assets/OscarCheca.jpg){ width=130px } |
+| **Foto** | ![](../SeniorsInProcess-Pandoc/assets/OscarCheca.jpg){ width=130px } |
 
 \
 
@@ -311,7 +311,7 @@ De esta manera, SeniorsInProcess busca generar valor para cada uno de sus segmen
 | **Código del Estudiante** | U202421823 |
 | **Carrera** | Ingeniería de Software |
 | **Descripción** | Soy Leonardo Dextre, tengo 23 años, actualmente estoy cursando el cuarto ciclo de mi carrera ingeniería de software en la UPC. Entre mis habilidades más destacadas es saber un poco de programación especialmente en C++ y un poco en Python. Además, tengo básico conocimiento en programas de Microsoft como el Excel. Mis pasatiempos son ver películas y jugar videojuegos. Mi objetivo con el curso es aprender más cosas acerca de mi carrera y poder aplicarlo en mi futuro laboral como profesional. |
-| **Foto** | ![](../assets/LeonardoDextre.png){ width=130px } |
+| **Foto** | ![](../SeniorsInProcess-Pandoc/assets/LeonardoDextre.png){ width=130px } |
 
 \
 
@@ -321,7 +321,7 @@ De esta manera, SeniorsInProcess busca generar valor para cada uno de sus segmen
 | **Código del Estudiante** | U202421065 |
 | **Carrera** | Ingeniería de Software |
 | **Descripción** | Soy Carlos Salcedo, tengo 18 años y actualmente curso el cuarto ciclo de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Cuento con conocimientos de nivel básico a intermedio en el lenguaje de programación C++, así como habilidades básicas en diseño. Además, tengo afinidad por el arte, especialmente el dibujo, y un fuerte interés por la música. Me considero una persona comprometida, responsable y con disposición constante para aprender. Mi objetivo en este curso es profundizar en los temas relacionados con mi carrera, fortalecer mis habilidades y prepararme para aplicarlas de manera efectiva en mi futuro profesional. |
-| **Foto** | ![](../assets/CarlosSalcedo.png){ width=130px } |
+| **Foto** | ![](../SeniorsInProcess-Pandoc/assets/CarlosSalcedo.png){ width=130px } |
 
 \
 
@@ -331,7 +331,7 @@ De esta manera, SeniorsInProcess busca generar valor para cada uno de sus segmen
 | **Código del Estudiante** | u202417417 |
 | **Carrera** | Ingeniería de Software |
 | **Descripción** | Soy Rafael André Barrenechea Bustamante, estudiante del quinto ciclo de la carrera de Ingeniería de Software. Una de mis principales cualidades es la capacidad para diseñar experiencias de usuario intuitivas y desarrollar componentes tecnológicos adaptados a las necesidades del proyecto. En el equipo, contribuiré con mis conocimientos en tecnologías como C++, Python y TypeScript, así como en el prototipado de interfaces, trabajando eficientemente para cumplir con todos los objetivos que se demanden. |
-| **Foto** | ![](../assets/RafaelBarrenechea.png){ width=130px } |
+| **Foto** | ![](../SeniorsInProcess-Pandoc/assets/RafaelBarrenechea.png){ width=130px } |
 
 \
 
@@ -492,6 +492,464 @@ En este contexto, los centros ortopédicos valoran soluciones que les permitan a
 
 **Características demográficas e información estadística de sustento:**  
 El mercado de centros ortopédicos en Lima está compuesto principalmente por negocios especializados en la venta de productos ortopédicos, prótesis externas, corsés y otros dispositivos de rehabilitación, distribuidos en distritos como La Victoria, Cercado de Lima y María Auxiliadora, según directorios comerciales locales. Estos establecimientos suelen operar de forma independiente, sin un sistema compartido que centralice la información sobre el uso o mantenimiento de las prótesis que fabrican o ajustan.
+
+```{=typst}
+#pagebreak()
+```
+```{=typst}
+#pagebreak()
+```
+
+# Capítulo II: Requirements Elicitation & Analysis 
+
+## 2.1. Competidores
+
+### Competidor 1: DyCare (ReHub)
+DyCare es una empresa de salud digital que ha desarrollado ReHub, una plataforma de telerehabilitación asistida por inteligencia artificial y visión computacional para el tratamiento de afecciones musculoesqueléticas. Proporciona herramientas para la prescripción de ejercicios personalizados, guía interactiva con biofeedback en tiempo real para el paciente desde su hogar y un panel clínico para monitorear la adherencia y evolución del tratamiento. Esta plataforma es reconocida en el sector de la fisioterapia digital por permitir a las clínicas y aseguradoras optimizar el seguimiento remoto sin requerir hardware adicional complejo.
+
+### Competidor 2: Ottobock Digital Solutions
+Ottobock Digital Solutions es la división tecnológica del fabricante global de prótesis y órtesis Ottobock, la cual ofrece herramientas digitales y aplicaciones móviles (como connectgo, connectgo.pro y Cockpit) conectadas por Bluetooth a sus prótesis controladas por microprocesador. Proporciona funcionalidades para que los técnicos ortopédicos calibren y configuren modos de movimiento, al tiempo que permite a los usuarios monitorear el estado del dispositivo, el nivel de batería y métricas básicas de actividad física diaria. Esta suite es conocida por su alto nivel de precisión técnica y por facilitar el mantenimiento y control directo de dispositivos protésicos de alta gama.
+
+### Competidor 3: SWORD Health
+SWORD Health es una plataforma integral de terapia física digital y telerehabilitación predictiva enfocada en el tratamiento del dolor y la recuperación posquirúrgica. Su solución combina sensores de movimiento inerciales portátiles con un terapeuta digital impulsado por IA (Phoenix), el cual guía y corrige al paciente en tiempo real durante cada sesión mientras un equipo de fisioterapeutas clínicos supervisa su progreso de forma remota a través de la nube. Esta plataforma es ampliamente reconocida en el mercado corporativo y de aseguradoras de salud por reducir significativamente la deserción en las terapias domiciliarias y disminuir costos médicos asociados a cirugías o tratamientos tradicionales.
+
+---
+
+## 2.1.1. Análisis competitivo
+
+> **¿Por qué llevar a cabo este análisis?**  
+> Identificar las soluciones existentes de telerehabilitación y monitoreo de prótesis en el mercado, contrastando sus propuestas de valor frente al enfoque integrado de SeniorsInProcess (paciente–clínica–ortopedia) para detectar ventajas competitivas y oportunidades de posicionamiento.
+
+```{=typst}
+#set text(size: 7.5pt)
+#set table(
+  columns: (1.5fr, 1.8fr, 2.5fr, 2.5fr, 2.5fr, 2.5fr),
+  stroke: 0.5pt + luma(180),
+  inset: 4.5pt
+)
+```
+
+| Sección | Variable | SeniorsInProcess (Prothia) | DyCare (Rehub) | Ottobock Digital | SWORD Health |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Logotipo** | Identificador visual | ![](../SeniorsInProcess-Pandoc/assets/Prothia_logo.png){ width=50px } | ![](../SeniorsInProcess-Pandoc/assets/logo_Rehub.png){ width=50px } | ![](../SeniorsInProcess-Pandoc/assets/logo_ottobock.png){ width=50px } | ![](../SeniorsInProcess-Pandoc/assets/logo_swordhealth.png){ width=50px } |
+| **Perfil** | Overview | Plataforma web integral de monitoreo biomecánico y seguimiento remoto de rehabilitación para amputados, articulando clínica, paciente y ortopedia. | Software de telerehabilitación y análisis de movimiento en tiempo real para lesiones musculoesqueléticas. | Soluciones digitales de prótesis/órtesis inteligentes con apps de configuración y telemetría de dispositivos. | Plataforma de terapia física digital enfocada en la rehabilitación guiada por sensores y terapeuta con IA. |
+| **Perfil** | Ventaja competitiva | Integra en una sola plataforma clínica, ortopedia y paciente, cruzando biomecánica con historial técnico protésico. | Visión computacional propia sin hardware (+60 puntos anatómicos) y biofeedback visual inmediato. | Marca de referencia mundial, integración nativa de microprocesadores y sensores mecánicos en la prótesis. | Solución integral con sensores inerciales portátiles propietarios y alta adherencia clínica. |
+| **Marketing** | Mercado objetivo | Clínicas de rehabilitación física, centros ortopédicos y pacientes amputados (Perú y LATAM). | Clínicas de fisioterapia, hospitales, aseguradoras y mutuas laborales en Europa y Latinoamérica. | Ortesistas/protesistas certificados (CPO), clínicas especializadas y usuarios de alta gama global. | Aseguradoras médicas y grandes corporaciones/empleadores que reducen costos de bajas laborales. |
+| **Marketing** | Estrategias | Ventas B2B directas, pilotos clínicos, alianzas universitarias y demostraciones de producto. | Inbound marketing médico, acuerdos con mutuas, ferias sanitarias y pruebas institucionales. | Venta cruzada atada al hardware protésico, capacitación médica y congresos de ortopedia. | Modelo B2B2C centrado en beneficios corporativos para empresas y marketing institucional. |
+| **Producto** | Productos & Servicios | Plataforma web con dashboard biomecánico, alertas posturales, seguimiento clínico e historial técnico. | Software Rehub con IA, catálogo de +3,500 ejercicios terapéuticos y corrección postural. | Suite de apps (Cockpit, connectgo, Myo Plus) para configuración, batería y mantenimiento. | Kit de sensores inerciales corporales, tableta con ejercicios interactivos y portal en la nube. |
+| **Producto** | Precios & Costos | Suscripción anual para clínicas y licencias de software para centros ortopédicos. | Planes SaaS por número de fisioterapeutas/pacientes o contratos corporativos a gran escala. | Apps básicas incluidas con el hardware; licencias clínicas avanzadas ligadas al costo protésico. | Tarificación por miembro cubierto (PEPM) o cobro por episodio rehabilitador a aseguradoras. |
+| **Producto** | Canales | Plataforma Web (SaaS clínico/taller) con portal web/móvil responsivo para el paciente. | Portal Web para profesionales y aplicación móvil/tableta (iOS y Android) para pacientes. | Aplicaciones móviles nativas en Google Play y App Store vía Bluetooth a componentes. | Envío de hardware directo a domicilio con apps móviles y portal clínico web. |
+| **SWOT** | Fortalezas | • Enfoque de nicho centrado en amputados.\ \ • Conexión directa clínica-ortopedia.\ \ • Arquitectura web adaptable. | • Certificación CE Clase IIa.\ \ • IA madura sin hardware extra.\ \ • Amplio catálogo terapéutico. | • Líder mundial y marca consolidada.\ \ • Integración hardware-software de alta gama.\ \ • Solidez y patentes. | • Amplia validación clínica global.\ \ • Gran capitalización y alianzas de salud.\ \ • Experiencia de usuario pulida. |
+| **SWOT** | Debilidades | • Etapa temprana de desarrollo.\ \ • Requiere validar compatibilidad con sensores.\ \ • Presupuesto inicial limitado. | • No especializada en adaptación o encaje protésico.\ \ • No integra fabricantes u ortopedias. | • Ecosistema cerrado exclusivo para componentes Ottobock.\ \ • Poca profundidad en ejercicios caseros. | • Solución de alto costo orientada a países desarrollados.\ \ • Poca personalización en amputados. |
+| **SWOT** | Oportunidades | • Alta demanda desatendida en Perú y LATAM.\ \ • Alianzas estratégicas con clínicas locales.\ \ • Telemedicina asequible. | • Expansión en salud pública y aseguradoras para listas de espera.\ \ • Nuevas patologías. | • Analítica predictiva de marcha y desgaste para mantenimiento programado. | • Penetración en nuevos mercados internacionales vía salud corporativa. |
+| **SWOT** | Amenazas | • Resistencia al cambio de especialistas tradicionales.\ \ • Tiempos largos de compra en clínicas. | • Apps gratuitas o de bajo costo sin suscripción.\ \ • Normativas sobre IA y datos de salud. | • Fabricantes emergentes de prótesis accesibles o de código abierto.\ \ • Falta de interoperabilidad. | • Entrada de gigantes MedTech al mercado de la telerehabilitación.\ \ • Políticas de reembolso. |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+---
+
+### 2.1.2. Estrategias y tácticas frente a competidores
+
+Hemos identificado diversas estrategias y tácticas para diferenciarnos y competir efectivamente con otros actores del mercado de la telerehabilitación y las soluciones tecnológicas protésicas:
+
+**Estrategias de Diferenciación:**
+* **Ecosistema Integrado:** A diferencia de competidores como DyCare (Rehub), que se enfocan en la relación terapeuta-paciente para rehabilitación musculoesquelética general, Prothia articula en una sola plataforma web a las clínicas de rehabilitación, los centros ortopédicos y los pacientes amputados. Esto permite cruzar datos de evolución motriz con métricas de uso y mantenimiento técnico del dispositivo protésico. 
+* **Plataforma Multimarca e Interoperable:** Frente a competidores directos como Ottobock Digital Solutions, cuyos sistemas de software están cerrados exclusivamente a sus propios componentes biónicos, Prothia se posiciona como una solución agnóstica. Nuestra plataforma está diseñada para registrar y analizar datos biomecánicos sin importar la marca o fabricante de la prótesis utilizada por el paciente. 
+* **Visualización Biomecánica Simplificada:** La plataforma prioriza una interfaz intuitiva con dashboards claros y alertas automáticas de posturas o patrones de marcha incorrectos. Esto permite que tanto el paciente en su hogar como el fisioterapeuta puedan interpretar la información de inmediato sin requerir conocimientos avanzados de ingeniería biomecánica. 
+
+**Tácticas de Marketing:**
+* **Demostraciones Clínicas y Pruebas Piloto B2B:** Implementaremos contacto directo con directores de centros de rehabilitación y talleres ortopédicos en Lima, ofreciendo demostraciones en vivo y programas piloto controlados con pacientes reales. Esta táctica nos permite validar la utilidad clínica de la plataforma y acelerar la confianza en el producto frente a competidores internacionales que carecen de presencia local. 
+* **Contenido Especializado y Difusión Científica:** Desarrollaremos casos de estudio, artículos y material informativo sobre la importancia del seguimiento domiciliario en pacientes amputados, difundidos en redes profesionales (como LinkedIn) y eventos del sector salud. De esta manera, nos posicionamos como referentes técnicos en rehabilitación protésica basada en datos. 
+
+**Expansión y Adaptabilidad:**
+* **Enfoque Local Inicial y Expansión Regional:** A diferencia de soluciones globales como Ottobock o SWORD Health, Prothia comenzará su validación e implementación en clínicas y centros ortopédicos de Lima, adaptándose a los flujos de trabajo y presupuestos de la realidad sanitaria peruana antes de expandirse a nivel nacional y latinoamericano. 
+* **Alianzas Estratégicas con Centros Ortopédicos y de Rehabilitación Locales:** Estableceremos convenios de colaboración mutua con ortopedias y especialistas locales para co-diseñar módulos clave (como el historial de uso y mantenimiento preventivo), garantizando una adopción fluida y un soporte técnico directo que las plataformas extranjeras no pueden ofrecer en el mercado local.
+
+---
+
+## 2.2. Entrevistas
+
+### 2.2.1. Diseño de entrevistas
+
+**Preguntas para el Segmento Objetivo 1 – Pacientes Amputados:**
+1. ¿Cuál es su edad, estado civil y en qué distrito o ciudad reside?
+2. ¿A qué se dedica actualmente y con quiénes vive en su hogar?
+3. ¿Hace cuánto tiempo utiliza una prótesis y de qué tipo es (mecánica, hidráulica, mioeléctrica)? 
+4. ¿Podrías detallar qué tipo de amputación tienes o qué extremidad se vio afectada?
+5. ¿Con qué frecuencia asiste a sus sesiones presenciales de terapia física o rehabilitación? 
+6. ¿Qué ejercicios o rutinas le indica su terapeuta para realizar en casa y con qué regularidad los practica? 
+7. ¿Qué dificultades o molestias (como dolor, fatiga o desbalances) suele experimentar al realizar sus ejercicios o al caminar solo en casa? 
+8. ¿Cómo sabe si está realizando correctamente los movimientos o si mantiene una postura adecuada sin la presencia del profesional? 
+9. ¿Cómo se comunica habitualmente con su clínica o con su ortopedia cuando presenta dudas o problemas con el uso de su dispositivo? 
+10. ¿Utiliza actualmente su celular, computadora u otra herramienta tecnológica para llevar el registro de su salud o terapias?
+11. ¿Qué tan valioso le resultaría contar con una plataforma que le muestre en tiempo real si realiza bien sus movimientos y alerte a su médico si hay errores? 
+12. ¿Qué dispositivos (computadora, tableta o teléfono inteligente) utiliza con mayor frecuencia y preferiría para interactuar con esta solución? 
+13. En su opinión, ¿qué características o funciones son indispensables para que usted decida usar diariamente esta plataforma? 
+14. ¿Qué factores o situaciones harían que usted se desmotive o deje de utilizar una aplicación de seguimiento de su prótesis?
+
+**Preguntas para el Segmento Objetivo 2 – Profesionales de Terapia Física y Rehabilitación:**
+1. ¿Cuál es su edad, profesión o cargo en la institución y en qué ciudad labora?
+2. ¿Hace cuántos años trabaja en el área de rehabilitación física y cuántos pacientes amputados atienden periódicamente en su centro? 
+3. ¿Cómo estructuran y coordinan actualmente el plan de rehabilitación y adaptación protésica fuera de las consultas presenciales? 
+4. ¿Cómo supervisan y registran el progreso biomecánico o la adherencia del paciente cuando este realiza sus ejercicios en el hogar? 
+5. ¿Cuáles son los principales problemas o riesgos que detectan cuando los pacientes no cuentan con seguimiento continuo en sus domicilios? 
+6. ¿Qué mecanismos o canales emplean actualmente para compartir información médica con los centros ortopédicos que confeccionan las prótesis? 
+7. ¿Utilizan en su clínica algún software clínico, sistema de telemedicina o herramienta digital para evaluar métricas biomecánicas? 
+8. ¿Qué tan valioso resultaría para su equipo disponer de un dashboard centralizado que muestre datos biomecánicos y de uso de la prótesis en tiempo real? 
+9. ¿Qué impacto tendría en su trabajo contar con alertas automáticas ante posturas incorrectas o compensaciones musculares de los pacientes? 
+10. ¿Estaría su clínica dispuesta a adquirir una suscripción anual por una solución digital que optimice el seguimiento y aumente el valor clínico del servicio? 
+11. ¿Qué módulos o indicadores considera estrictamente indispensables para que su equipo médico adopte una plataforma de este tipo? 
+12. ¿A través de qué dispositivos preferirían los profesionales de su centro acceder a la plataforma (navegador web en PC, laptops, tabletas)? 
+13. ¿Qué barreras o problemas operativos podrían desincentivar el uso continuado de este software en su institución? 
+
+**Preguntas para el Segmento Objetivo 3 – Técnicos Ortoprotesistas:**
+1. ¿Cuál es su edad, especialidad técnica o cargo y en qué ciudad opera su centro ortopédico?
+2. ¿A qué se dedica específicamente su taller y cuántas prótesis adaptan o fabrican mensualmente? 
+3. ¿Cómo organizan actualmente el calendario de ajustes, revisiones periódicas y mantenimiento de las prótesis entregadas? 
+4. ¿Llevan un historial técnico o registro estructurado del estado físico y vida útil de cada componente protésico? ¿Cómo lo gestionan? 
+5. ¿Qué dificultades enfrentan para saber con certeza el uso real, desgaste y esfuerzo al que los usuarios someten las prótesis en su vida cotidiana? 
+6. ¿Cómo fluye actualmente la comunicación técnica entre su taller y los médicos o fisioterapeutas a cargo de la rehabilitación del paciente? 
+7. ¿Han utilizado previamente algún software de gestión de prótesis o telemetría para componentes ortopédicos? Si fue así, ¿cuál fue su experiencia? 
+8. ¿Qué tan beneficioso sería para su centro disponer de un portal con el historial de uso y horas de actividad del dispositivo en tiempo real? 
+9. ¿De qué manera ayudaría a su negocio recibir alertas preventivas sobre necesidad de mantenimiento o calibración de las piezas? 
+10. ¿Estaría su centro ortopédico dispuesto a pagar una licencia de software para optimizar la trazabilidad, posventa y servicio técnico de sus prótesis? 
+11. ¿Qué funcionalidades técnicas considera fundamentales para que una herramienta digital sea útil en la rutina de un protesista u ortesista? 
+12. ¿En qué dispositivos (computadoras de escritorio del taller, laptops de evaluación o smartphones) necesitarían utilizar la herramienta? 
+
+---
+
+### 2.2.2. Registro de entrevistas
+
+#### Segmento objetivo 1 - Pacientes amputados
+
+### Entrevista 1 – Enrique Diaz
+
+* **Nombres y Apellidos:** Enrique Diaz Aguero
+* **Edad:** 26 años
+* **Distrito de Residencia:** Lince (Lima)
+* **Estado Civil:** Soltero
+* **Ocupación:** Asistente administrativo (modalidad teletrabajo)
+* **Condición Médica:** Amputación transtibial en la pierna derecha (uso de prótesis mecánica convencional desde hace 2 años).
+* **Fecha de entrevista:** 08/09/2026 | **Duración:** 7:16
+* **Enlace:** https://tinyurl.com/2ezssk23
+
+![](../SeniorsInProcess-Pandoc/assets/Entrevista_Segmento1.png){ width=80% }
+
+**Resumen de la entrevista:**  
+El entrevistado es Enrique Díaz, un joven de 26 años de edad, de estado civil soltero, que reside en el distrito de Lince en Lima, Perú, y labora actualmente como asistente administrativo desempeñándose en la modalidad de teletrabajo la mayor parte del tiempo, viviendo solo en su departamento. En cuanto a su condición física, Enrique tiene una amputación transtibial en la pierna derecha por debajo de la rodilla como secuela de un accidente de tránsito ocurrido hace poco más de dos años, momento desde el cual utiliza una prótesis mecánica convencional. Respecto a su rehabilitación, en las etapas iniciales concurría a terapia presencial dos veces por semana, pero en la actualidad redujo su asistencia a una vez cada quince días debido a las severas dificultades de movilidad y traslado en la ciudad.
+
+En su hogar tiene asignada una rutina diaria de descarga de peso, ejercicios de equilibrio apoyado frente a una silla y caminatas cortas en línea recta, no obstante, reconoce que por agotamiento laboral o desgana los ejecuta de manera interdiaria. Al ejercitarse o caminar solo experimenta fricción e irritación cutánea generada por el roce del encaje de la prótesis, así como dolores en la espalda baja al finalizar el día debido a que compensa de forma asimétrica el peso corporal cargándolo hacia la pierna contralateral o pisando de manera desalineada. Para comunicarse con la clínica utiliza WhatsApp con demoras habituales, y ante desajustes mecánicos acude presencialmente al taller perdiendo horas de trabajo. Establece como indispensables una interfaz simple, botones legibles y que no consuma su plan de datos móviles ni batería.
+
+\
+
+### Entrevista 2 – Juan Ramirez
+
+* **Nombres y Apellidos:** Juan Ramirez
+* **Edad:** 30 años
+* **Distrito de Residencia:** San Miguel (Lima)
+* **Estado Civil:** Soltero
+* **Ocupación:** Desarrollador de software freelance
+* **Condición Médica:** Amputación transtibial en la pierna izquierda.
+* **Fecha de entrevista:** 08/09/2026 | **Duración:** 7:04
+* **Enlace:** https://tinyurl.com/3p23ymt4
+
+![](../SeniorsInProcess-Pandoc/assets/PacienteAmputado-imagen.jpeg){ width=80% }
+
+**Resumen de la entrevista:**  
+Juan Ramirez tiene 30 años y se desempeña como desarrollador freelance. Presenta una amputación transtibial y utiliza una prótesis mecánica de respuesta dinámica. Asiste mensualmente a control con su fisioterapeuta y realiza rutinas de muñón y equilibrio en casa. Durante sus ejercicios experimenta sobrecarga lumbar y fatiga en el muñón. Como método de validación casera se grababa en video, pero aún siente incertidumbre sobre si desvía el eje corporal. Considera de alto valor una plataforma con retroalimentación visual o auditiva inmediata, gráficas de balance y rechaza de manera enfática las notificaciones invasivas o sistemas de calibración lentos.
+
+\
+
+### Entrevista 3 – Miguel Suarez
+
+* **Nombres y Apellidos:** Miguel Suarez Casas
+* **Edad:** 25 años
+* **Distrito de Residencia:** San Martín de Porres (Lima)
+* **Estado Civil:** Soltero
+* **Ocupación:** Asistente administrativo (modalidad teletrabajo)
+* **Condición Médica:** Amputación transfemoral en la pierna derecha (uso de prótesis mecánica desde hace 3 años).
+* **Fecha de entrevista:** 08/09/2026 | **Duración:** 5:10
+* **Enlace:** https://tinyurl.com/23hvbfxw
+
+![](../SeniorsInProcess-Pandoc/assets/Entrevista_PacienteAmputado(3).png){ width=80% }
+
+**Resumen de la entrevista:**  
+Miguel presenta una amputación transfemoral y asiste a terapia física una vez por semana. Realiza rutinas de adaptación tres a cuatro veces por semana, experimentando desbalances y temor a caídas o vicios de marcha por sobrecompensación. Usa su celular permanentemente para consultas médicas y videos de ejercicios. Demanda una plataforma móvil intuitiva con métricas históricas de avance, alertas ante fallos cinemáticos y que proteja estrictamente su privacidad.
+
+---
+
+#### Segmento objetivo 2 - Profesionales de Terapia Física y Rehabilitación
+
+### Entrevista 1 – Diego Salazar
+
+* **Nombres y Apellidos:** Diego Salazar Mendoza
+* **Edad:** 28 años
+* **Ocupación:** Licenciado en Terapia Física y Rehabilitación
+* **Centro de trabajo:** Centro de rehabilitación en Jesús María (Lima)
+* **Fecha de entrevista:** 07/09/2026 | **Duración:** 7:09
+* **Enlace:** https://tinyurl.com/mwx4b4s6
+
+![](../SeniorsInProcess-Pandoc/assets/Entrevista_Segmento2.png){ width=80% }
+
+**Resumen de la entrevista:**  
+Diego atiende de 6 a 10 pacientes amputados de forma regular. Explica que la clínica carece de herramientas objetivas para supervisar el cumplimiento de los ejercicios en el hogar y dependen únicamente del testimonio verbal del paciente. La comunicación con ortopedias se realiza por WhatsApp y llamadas sin un expediente unificado. Recomienda adoptar un dashboard centralizado que muestre datos biomecánicos, planes de ejercicio y alertas de desalineación, priorizando la visualización en computadoras y tabletas clínicas.
+
+\
+
+### Entrevista 2 – Ana Mercedes
+
+* **Nombres y Apellidos:** Ana Mercedes
+* **Edad:** 38 años
+* **Ocupación:** Fisioterapeuta especialista en rehabilitación física (Lima)
+* **Fecha de entrevista:** 08/09/2026 | **Duración:** 6:12
+* **Enlace:** https://tinyurl.com/44yuywb7
+
+![](../SeniorsInProcess-Pandoc/assets/clinica-entrevista.jpeg){ width=80% }
+
+**Resumen de la entrevista:**  
+Ana cuenta con 10 años de experiencia asistencial. Subraya el grave riesgo clínico de que los pacientes desarrollen compensaciones lumbares al entrenar solos. La coordinación técnica con ortopedias es reactiva y se limita a casos de daño estructural. Considera indispensable un módulo de análisis cinemático de marcha, exportación de reportes al historial médico y una interfaz sencilla que no agregue sobrecarga administrativa de digitación manual.
+
+\
+
+### Entrevista 3 – Carmen Salazar
+
+* **Nombres y Apellidos:** Carmen Salazar
+* **Edad:** 70 años
+* **Ocupación:** Médica especialista en Rehabilitación (Directora Médica en Lima)
+* **Fecha de entrevista:** 10/09/2026 | **Duración:** 6:12
+* **Enlace:** https://tinyurl.com/5xxj6njv
+
+![](../SeniorsInProcess-Pandoc/assets/Entrevista3_Segmento2.png){ width=80% }
+
+**Resumen de la entrevista:**  
+Con más de 40 años de trayectoria, la Dra. Carmen señala que una plataforma digital debe complementar el criterio médico sin burocracia. Propone una vista con semaforización (verde, amarillo y rojo) para triaje rápido de pacientes y alertas preventivas. Señala que la clínica contrataría una suscripción anual si el sistema demuestra reducir tiempos de consulta e integrar métricas objetivas a la historia clínica.
+
+---
+
+#### Segmento objetivo 3 - Técnicos Ortoprotesistas
+
+### Entrevista 1 – Miguel Sanchez
+
+* **Nombres y Apellidos:** Miguel Sanchez Castillo
+* **Edad:** 57 años
+* **Ocupación:** Protesista-ortesista (Director técnico de taller en Pueblo Libre)
+* **Fecha de entrevista:** 09/09/2026 | **Duración:** 5:24
+* **Enlace:** https://tinyurl.com/2asw539n
+
+![](../SeniorsInProcess-Pandoc/assets/entrevista_Segmento3.png){ width=80% }
+
+**Resumen de la entrevista:**  
+Miguel dirige un taller con una producción de 10 a 15 prótesis al mes. Reconoce que el mantenimiento actual es totalmente reactivo: los usuarios solo acuden cuando una pieza se rompe. Respaldaría firmemente el pago de una licencia de software que le permita ver horas de uso y pasos reales para validar garantías con datos objetivos y agendar revisiones preventivas.
+
+\
+
+### Entrevista 2 – Juan Carlos Salcedo
+
+* **Nombres y Apellidos:** Juan Carlos Salcedo
+* **Edad:** 47 años
+* **Ocupación:** Técnico ortoprotesista (Taller en Av. 28 de Julio, Lima)
+* **Fecha de entrevista:** 16/09/2026 | **Duración:** 5:36
+* **Enlace:** https://tinyurl.com/bdhm2vcm
+
+![](../SeniorsInProcess-Pandoc/assets/Entrevista2_Segmento3.png){ width=80% }
+
+**Resumen de la entrevista:**  
+Especialista enfocado en el cuidado biomecánico del muñón y la fluctuación volumétrica a lo largo del día. Destaca la necesidad de monitorear horas de caminata y pasos diarios. Advierte que muchos pacientes son personas adultas mayores con amputaciones diabéticas, por lo que el sistema debe ser intuitivo tanto para el usuario como para sus familiares.
+
+\
+
+### Entrevista 3 – Jose Riveros Veliz
+
+* **Nombres y Apellidos:** Jose Riveros Veliz
+* **Edad:** 30 años
+* **Ocupación:** Técnico ortoprotesista (Encargado de taller en Lima)
+* **Fecha de entrevista:** 16/09/2026 | **Duración:** 4:20
+* **Enlace:** https://tinyurl.com/2p4uysyj
+
+![](../SeniorsInProcess-Pandoc/assets/Entrevista3_Segmento3.png){ width=80% }
+
+**Resumen de la entrevista:**  
+José produce entre 4 y 6 prótesis mensuales y efectúa alineaciones continuas. Ha utilizado software de marcas específicas para rodillas mecatrónicas pero critica su condición cerrada. Demanda una plataforma multimarca con alertas de fatiga de materiales y trazabilidad por número de serie, compatible con computadoras y smartphones para pruebas en pista de marcha.
+
+---
+
+### 2.2.3. Análisis de entrevistas
+
+**Segmento 1: Pacientes Amputados**
+* El 100% (3/3) son varones entre 25 y 30 años residentes en Lima, que realizan teletrabajo y usan prótesis mecánicas de extremidad inferior.
+* El 100% espacia sus visitas clínicas por costos y traslados en transporte público.
+* El 100% experimenta fatiga, dolor lumbar por compensación asimétrica y falta de supervisión en sus rutinas caseras.
+* Exigen interfaces móviles sencillas, sin saturación publicitaria ni drenaje excesivo de batería y datos móviles.
+
+**Segmento 2: Profesionales de Rehabilitación**
+* Promedio de 18.3 años de experiencia en el área de medicina física. Atienden entre 15 y 20 pacientes amputados de forma continua.
+* El 100% depende del testimonio verbal del paciente para el seguimiento ambulatorio.
+* Valoran la creación de dashboards con alertas tempranas, semáforos de riesgo y exportación de reportes clínicos.
+* Demandan soporte en PC de escritorio para historia clínica y en tabletas para evaluaciones físicas dinámicas.
+
+**Segmento 3: Técnicos Ortoprotesistas**
+* Promedio de 44.7 años. Fabrican entre 4 y 15 dispositivos al mes.
+* El 100% opera bajo un modelo de mantenimiento correctivo/reactivo por falta de telemetría de uso.
+* El 66.7% tiene total disposición a pagar licencias de software que aporten trazabilidad técnica y justifiquen garantías de componentes.
+* Requieren métricas de conteo de pasos, horas de esfuerzo mecánico y alertas preventivas multimarca.
+
+---
+
+## 2.3. Needfinding
+
+### 2.3.1. User Personas
+
+**Segmento 1: Carlos Mendoza (Paciente Amputado)**  
+![](../SeniorsInProcess-Pandoc/assets/UP-Carlos%20Mendoza.png){ width=100% }
+
+\
+
+**Segmento 2: Valeria Rios (Jefa de Fisioterapia y Rehabilitación)**  
+![](../SeniorsInProcess-Pandoc/assets/Valeria%20Rios.png){ width=100% }
+
+\
+
+**Segmento 3: Miguel Torres (Técnico Ortoprotésico)**  
+![](../SeniorsInProcess-Pandoc/assets/Miguel%20Torres.png){ width=100% }
+
+---
+
+### 2.3.2. User Task Matrix
+
+```{=typst}
+#set text(size: 7.5pt)
+#set table(
+  columns: (3fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr, 1.2fr),
+  stroke: 0.5pt + luma(180),
+  inset: 4.5pt
+)
+```
+
+| Tarea (Task) | Paciente Frec. | Paciente Imp. | Terapeuta Frec. | Terapeuta Imp. | Ortoprotésico Frec. | Ortoprotésico Imp. |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1. Colocación, ajuste e inspección del encaje y muñón | Muy alta | Crítica | Baja | Alta | Baja | Alta |
+| 2. Ejecución de ejercicios de fortalecimiento y marcha | Alta | Crítica | Rara vez | Media | Rara vez | Baja |
+| 3. Monitoreo y autoobservación postural para evitar vicios | Muy alta | Crítica | Baja | Media | Rara vez | Baja |
+| 4. Registro y reporte de sensaciones de dolor o fatiga | Alta | Alta | Media | Alta | Baja | Media |
+| 5. Asistencia a sesiones presenciales de fisioterapia | Media | Alta | Alta | Crítica | Rara vez | Baja |
+| 6. Evaluación biomecánica presencial de postura y apoyo | Rara vez | Alta | Alta | Crítica | Baja | Alta |
+| 7. Prescripción y ajuste de planes de ejercicio terapéutico | Rara vez | Media | Alta | Crítica | Rara vez | Baja |
+| 8. Revisión y análisis de la evolución clínica del paciente | Baja | Media | Alta | Crítica | Rara vez | Media |
+| 9. Documentación y actualización del historial clínico | Rara vez | Baja | Alta | Alta | Rara vez | Baja |
+| 10. Fabricación, adaptación, alineación y entrega de prótesis | Rara vez | Crítica | Rara vez | Alta | Media | Crítica |
+| 11. Evaluación del desgaste físico y holguras mecánicas | Baja | Media | Rara vez | Media | Media | Crítica |
+| 12. Mantenimiento preventivo y cambio de consumibles | Rara vez | Alta | Rara vez | Baja | Media | Crítica |
+| 13. Calibración mecánica de articulaciones y alineación | Rara vez | Alta | Rara vez | Media | Media | Crítica |
+| 14. Registro y trazabilidad de componentes entregados | Rara vez | Baja | Rara vez | Baja | Alta | Alta |
+| 15. Coordinación interinstitucional clínica–ortopedia | Baja | Media | Media | Alta | Media | Alta |
+| 16. Traslado físico hacia los centros de atención | Media | Media | Rara vez | Baja | Rara vez | Baja |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+---
+
+### 2.3.3. User Journey Mapping
+
+**Segmento 1: Carlos Mendoza**  
+![](../SeniorsInProcess-Pandoc/assets/JM-Carlos%20Mendoza.png){ width=100% }
+
+\
+
+**Segmento 2: Valeria Rios**  
+![](../SeniorsInProcess-Pandoc/assets/JM-Valeria%20Rios.png){ width=100% }
+
+\
+
+**Segmento 3: Miguel Torres**  
+![](../SeniorsInProcess-Pandoc/assets/JM-Miguel%20Torres.png){ width=100% }
+
+---
+
+### 2.3.4. Empathy Mapping
+
+**Segmento 1: Carlos Mendoza**  
+![](../SeniorsInProcess-Pandoc/assets/EM-CarlosMendoza.png){ width=100% }
+
+\
+
+**Segmento 2: Valeria Rios**  
+![](../SeniorsInProcess-Pandoc/assets/EM-ValeriaRios.png){ width=100% }
+
+\
+
+**Segmento 3: Miguel Torres**  
+![](../SeniorsInProcess-Pandoc/assets/EM-MiguelTorres.png){ width=100% }
+
+---
+
+## 2.4. Big Picture EventStorming
+
+**1- Colocación de eventos del dominio (tarjetas naranjas):**  
+![](../SeniorsInProcess-Pandoc/assets/fase1.png){ width=100% }
+
+\
+
+**2- Ordenamiento de los eventos en secuencia cronológica:**  
+![](../SeniorsInProcess-Pandoc/assets/fase2.png){ width=100% }
+
+\
+
+**3- Colocación de actores (tarjetas amarillas) y sistemas externos (tarjetas azules):**  
+![](../SeniorsInProcess-Pandoc/assets/fase3.png){ width=100% }
+
+\
+
+**4- Identificación de problemas en la secuencia (tarjetas rosadas):**  
+![](../SeniorsInProcess-Pandoc/assets/fase4.png){ width=100% }
+
+\
+
+* **Procesos clave:** Fabricación y entrega de prótesis, evaluación clínica y prescripción, ejecución de rutinas caseras y detección de daños para mantenimiento.
+* **Problemas:** Ceguera clínica fuera de consulta, reporte subjetivo por WhatsApp, mantenimiento puramente reactivo y datos dispersos.
+* **Oportunidades:** Telemetría biomecánica en tiempo real, alertas de compensación muscular, historial unificado de mantenimiento y comunicación directa interinstitucional.
+
+*Tablero Miro:* https://miro.com/app/board/uXjVGbuSqec=/?share_link_id=610103626578
+
+---
+
+## 2.5. Ubiquitous Language
+
+```{=typst}
+#set table(
+  columns: (1.3fr, 3fr),
+  stroke: 0.5pt + luma(180),
+  inset: 6pt
+)
+```
+
+| Término | Definición |
+| :--- | :--- |
+| **Amputee Patient** | Persona que ha sufrido una amputación, utiliza una prótesis y participa en un proceso de adaptación y rehabilitación. |
+| **Rehabilitation Clinic** | Institución o equipo profesional responsable de evaluar, planificar y realizar seguimiento al proceso de rehabilitación del paciente. |
+| **Orthopedic Center** | Establecimiento especializado en la fabricación, adaptación, revisión y mantenimiento de prótesis. |
+| **Prosthesis** | Dispositivo utilizado por el paciente para sustituir total o parcialmente una extremidad y apoyar su movilidad. |
+| **Rehabilitation Plan** | Conjunto de objetivos y actividades definidas para acompañar la recuperación y adaptación del paciente. |
+| **Exercise Plan** | Conjunto de ejercicios asignados a un paciente, incluyendo frecuencia y repeticiones esperadas. |
+| **Exercise Completion** | Registro que indica que un paciente realizó un ejercicio perteneciente a su plan vigente. |
+| **Adherence** | Nivel de cumplimiento del paciente respecto de los ejercicios y actividades indicadas en su plan de rehabilitación. |
+| **Biomechanical Data** | Información obtenida durante el movimiento o uso de la prótesis y utilizada para analizar el desempeño del paciente. |
+| **Biomechanical Session** | Periodo de actividad durante el cual se recopilan y procesan datos biomecánicos relacionados con un paciente. |
+| **Posture Assessment** | Evaluación del movimiento o postura del paciente a partir de datos biomecánicos y parámetros establecidos. |
+| **Biomechanical History** | Conjunto cronológico de registros biomecánicos asociados a un paciente. |
+| **Rehabilitation Progress** | Evolución del paciente a partir del cumplimiento de ejercicios y la información registrada durante su rehabilitación. |
+| **Clinical Alert** | Aviso generado cuando se identifica una condición biomecánica que requiere la revisión de un profesional de la clínica. |
+| **Alert Threshold** | Valor o rango configurado para determinar cuándo un indicador biomecánico debe generar una alerta. |
+| **Technical History** | Registro de intervenciones, revisiones y observaciones realizadas sobre una prótesis. |
+| **Maintenance** | Actividad de revisión, ajuste o intervención realizada para conservar el funcionamiento adecuado de una prótesis. |
+| **Preventive Maintenance** | Mantenimiento programado antes de la aparición de una falla, según fecha o condiciones de uso. |
+| **Maintenance Alert** | Aviso dirigido al centro ortopédico cuando una prótesis alcanza una condición que requiere revisión o mantenimiento. |
+| **Patient Information Sharing** | Acción mediante la cual la clínica habilita información relevante del paciente al centro ortopédico responsable de su prótesis. |
+| **Biomechanical Monitoring** | Seguimiento de información biomecánica generada durante el uso de la prótesis y las actividades de rehabilitación. |
+| **Prosthesis Usage** | Información relacionada con el uso acumulado y condiciones de utilización de una prótesis. |
 
 ```{=typst}
 #pagebreak()
