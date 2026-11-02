@@ -96,6 +96,13 @@ El informe se elaboró de manera colaborativa utilizando Git y GitHub como plata
 
 # Tabla de Contenidos
 
+```{=typst}
+#outline(
+  title: none,
+  depth: 3,
+  indent: auto
+)
+```
 ## [Capítulo I: Introducción](01-Chapter-1-Introducción.md#capítulo-i-introducción)
 
 - [1.1. Startup Profile](01-Chapter-1-Introducción.md#11-startup-profile)
