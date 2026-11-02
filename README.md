@@ -1670,4 +1670,481 @@ Representa la estructura relacional integral de Prothia Platform en PostgreSQL 1
 ```{=typst}
 #pagebreak()
 ```
+```{=typst}
+#pagebreak()
+```
 
+# Capítulo V: Product Implementation, Validation & Deployment
+
+## 5.1 Software Configuration Management
+
+La gestión en **SeniorsInProcess (Prothia)** incluye el código fuente, documentación, prototipos y configuraciones del entorno de desarrollo de la plataforma web de monitoreo y seguimiento de rehabilitación de pacientes amputados. El proyecto contempla distintos productos digitales, incluyendo una Landing Page institucional, una aplicación web para clínicas de rehabilitación y centros ortopédicos, y servicios backend orientados al procesamiento de datos biomecánicos y de uso de prótesis en tiempo real. El equipo adopta prácticas basadas en GitFlow, Conventional Commits y Semantic Versioning, asegurando un flujo de trabajo colaborativo y organizado.
+
+### 5.1.1. Software Development Environment Configuration
+
+```{=typst}
+#set text(size: 7.5pt)
+#set table(
+  columns: (1.5fr, 1.2fr, 2fr, 3.5fr, 1.2fr, 2fr),
+  stroke: 0.5pt + luma(180),
+  inset: 5pt
+)
+```
+
+| Categoría | Logo | Producto | Propósito de Uso en el Proyecto | Tipo | Referencia / Descarga |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Project Management | ![](../SeniorsInProcess-Pandoc/assets/trello.jpg){ width=35px } | Trello | Gestión de tareas mediante tableros organizados (To-Do, In Progress, Done) para el seguimiento de entregables. | SaaS | https://trello.com |
+| Team Communication | ![](../SeniorsInProcess-Pandoc/assets/discord.png){ width=35px } | Discord | Comunicación remota sincrónica, planificación de Sprints y coordinación general del equipo. | SaaS / Desktop | https://discord.com/ |
+| Requirements | ![](../SeniorsInProcess-Pandoc/assets/miro.jpg){ width=35px } | Miro | Diagramación de flujos, análisis de negocio y ejecución de sesiones de EventStorming. | SaaS | https://miro.com |
+| Architecture | ![](../SeniorsInProcess-Pandoc/assets/structurizr.png){ width=35px } | Structurizr | Modelado de la arquitectura de software bajo el modelo C4 en sus distintos niveles de abstracción. | SaaS / Desktop | https://structurizr.com |
+| UX/UI Design | ![](../SeniorsInProcess-Pandoc/assets/figma.png){ width=35px } | Figma | Diseño visual y prototipado interactivo de las interfaces de usuario (web y móvil). | SaaS / Desktop | https://www.figma.com |
+| Technical Design | ![](../SeniorsInProcess-Pandoc/assets/lucidchart.png){ width=35px } | Lucidchart | Elaboración de diagramas de flujo de trabajo, arquitectura técnica y procesos operativos. | SaaS | https://www.lucidchart.com |
+| Development | ![](../SeniorsInProcess-Pandoc/assets/html.png){ width=35px } | HTML5 / CSS3 / JS | Estándares y lenguajes base para el desarrollo frontend y maquetación de la Landing Page. | Lenguajes | https://developer.mozilla.org/es/ |
+| IDE | ![](../SeniorsInProcess-Pandoc/assets/webstorm.jpg){ width=35px } | WebStorm | Entorno de desarrollo integrado principal para programación y depuración frontend. | Desktop | https://www.jetbrains.com/webstorm/ |
+| Testing | ![](../SeniorsInProcess-Pandoc/assets/gherkin.png){ width=35px } | Gherkin | Lenguaje de especificación para definir escenarios de prueba BDD basados en historias de usuario. | DSL | https://cucumber.io/docs/gherkin/ |
+| Version Control | ![](../SeniorsInProcess-Pandoc/assets/github.jpg){ width=35px } | GitHub | Control de versiones distribuido, registro de commits y alojamiento de documentación técnica. | SaaS | https://github.com |
+| Deployment | ![](../SeniorsInProcess-Pandoc/assets/gitpages.jpg){ width=35px } | GitHub Pages | Servicio de alojamiento y despliegue continuo para la versión pública de la Landing Page. | SaaS | https://pages.github.com |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+---
+
+### 5.1.2 Source Code Management
+
+La gestión de código fuente del proyecto **Prothia (SeniorsInProcess)** se realiza mediante la plataforma **GitHub**, permitiendo un control de versiones en entorno de trabajo colaborativo. Se han definido repositorios independientes para cada producto digital.
+
+#### 5.1.2.1 Repositories
+
+| Product | Repository URL | Description |
+| :--- | :--- | :--- |
+| **Organization** | [SeniorsInProcess-Prothia-1ASI0729](https://github.com/SeniorsInProcess-Prothia-1ASI0729) | Organización central donde se ubican todos los repositorios del proyecto. |
+| **Landing Page** | [Prothia-Business-Web-Page](https://github.com/upc-pre-202620-1asi0730-8155-SeniorsIP/SeniorsInProcess-Prothia-LandingPage) | Repositorio de la Landing Page institucional del proyecto. |
+| **Frontend Web Application** | [Prothia-Front-End](https://github.com/upc-pre-202620-1asi0730-8155-SeniorsIP/SeniorsInProcess-Prothia-Frontend) | Aplicación web para el monitoreo y seguimiento de la rehabilitación de pacientes amputados. |
+| **Backend Web Services** | [Prothia-Back-end](https://github.com/upc-pre-202620-1asi0730-8155-SeniorsIP/SeniorsInProcess-Prothia-Backend) | API REST y lógica de procesamiento de datos biomecánicos y de uso de prótesis. |
+| **Documentation Repository** | [Prothia-Report](https://github.com/upc-pre-202620-1asi0730-8155-SeniorsIP/SeniorsInProcess-Prothia-Report/tree/develop) | Documentación técnica, reportes y entregables del proyecto. |
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/organization-photo.png){ width=95% }
+
+---
+
+#### 5.1.2.2 GitFlow Workflow
+
+El equipo adopta **GitFlow** como estrategia de branching para mantener la estabilidad del código:
+
+* **Main Branch:** Contiene únicamente versiones estables y aprobadas del proyecto listas para producción (`main`).
+* **Develop Branch:** Rama principal de integración donde se consolidan las funcionalidades antes de pasar a producción (`develop`).
+* **Feature Branches:** Cada nueva funcionalidad se desarrolla en una rama independiente (`feature/<feature-name>`). Ejemplos: `feature/patient-monitoring-dashboard`, `feature/biomechanical-data-tracking`.
+* **Hotfix Branches:** Ramas de emergencia para corregir errores críticos detectados directamente en producción (`hotfix/<issue-description>`).
+
+#### 5.1.2.3 Semantic Versioning
+
+El proyecto utiliza **Semantic Versioning 2.0.0** para controlar las versiones de los productos digitales de Prothia:
+
+| Version | Description |
+| :--- | :--- |
+| **v1.0.0** | Primera versión estable y funcional del producto. |
+| **v1.1.0** | Incorporación de nuevas funcionalidades menores. |
+| **v1.1.1** | Corrección de errores menores sin alterar compatibilidad. |
+| **v2.0.0** | Cambios mayores que incluyen modificaciones estructurales incompatibles. |
+
+#### 5.1.2.4 Conventional Commits
+
+Se adopta el estándar de **Conventional Commits** para mantener un historial de cambios limpio y legible:
+
+| Prefix | Purpose |
+| :--- | :--- |
+| **feat** | Implementación de nuevas funcionalidades. |
+| **fix** | Corrección de errores o bugs. |
+| **docs** | Actualizaciones en la documentación del repositorio. |
+| **style** | Cambios que no afectan la lógica (espaciados, formatos, CSS). |
+| **refactor** | Reestructuración del código existente sin cambiar su funcionalidad. |
+| **test** | Corrección o adición de pruebas unitarias o de integración. |
+
+---
+
+## 5.2. Landing Page, Services & Applications Implementation
+
+### 5.2.1. Sprint 1
+
+Durante este primer sprint, el equipo se enfocó en la implementación de la Landing Page de Prothia, estableciendo el principal canal de comunicación pública y captación para la plataforma biomecánica.  
+
+#### 5.2.1.1. Sprint Planning 1 
+
+```{=typst}
+#set table(
+  columns: (1.5fr, 3.5fr),
+  stroke: 0.5pt + luma(180),
+  inset: 6pt
+)
+```
+
+| **Campo** | **Detalle** |
+| :--- | :--- |
+| **Sprint #** | Sprint 1 |
+| **Sprint Planning Background** | Reunión inicial para definir las prioridades del producto, enfocándonos en establecer la presencia web pública y habilitar la captación de usuarios interesados mediante la Landing Page. |
+| **Date** | 2026-09-03 |
+| **Time** | 20:00 PM |
+| **Location** | Microsoft Teams Group Call |
+| **Prepared By** | Patricio Farias, Ana Camila |
+| **Attendees** | Patricio Farias, Ana Camila / Checa Burga, Oscar Diego / Dextre Flores, Leonardo Felix / Salcedo Correa, Carlos Mathhew / Barrenechea Bustamante, Rafael Andre |
+| **Sprint Review Summary** | Durante la fase preliminar se definió la arquitectura de información, se elaboraron wireframes y mock-ups, y se configuraron los repositorios y tableros de Trello. |
+| **Sprint Retrospective** | **Start:** Realizar sincronizaciones cortas para identificar bloqueos técnicos.\ \ **Continue:** Mantener la revisión cruzada de diseños.\ \ **Stop:** Retrasar la creación de ramas en el repositorio. |
+| **Sprint 1 Goal** | Implementar la arquitectura base y funcionalidades del sitio web estático, permitiendo a los visitantes conocer la propuesta de valor y solicitar una demostración clínica. |
+| **Sprint 1 Velocity** | 6 Story Points |
+
+---
+
+#### 5.2.1.2. Aspect Leaders and Collaborators 
+
+| Integrante | GitHub | Landing Page (HTML/CSS/JS) | UX/UI & Prototyping | Project Documentation |
+| :--- | :--- | :---: | :---: | :---: |
+| Barrenechea Bustamante, Rafael Andre | yafussssss | C | C | C |
+| Checa Burga, Oscar Diego | OscarCheca | C | C | L |
+| Dextre Flores, Leonardo Felix | Leo-dex45 | C | C | C |
+| Patricio Farias, Ana Camila | anacamilapatricio-sketch | C | L | L |
+| Salcedo Correa, Carlos Mathhew | Matthewnhfe | L | L | C |
+
+---
+
+#### 5.2.1.3. Sprint Backlog 1 
+
+Para organizar el flujo de trabajo, las tareas se gestionaron mediante **Trello**:
+
+![](../SeniorsInProcess-Pandoc/assets/spring1.png){ width=95% }
+
+*Tablero de Trello:* https://trello.com/invite/b/6aabb55b023122d8fe598ee0/ATTI98b4a9da9fc821f35855872e0885a87cFED1E6E2/seniorsinprocess-prothia-sprint-1
+
+---
+
+#### 5.2.1.4. Development Evidence for Sprint Review 
+
+```{=typst}
+#set text(size: 8pt)
+#set table(
+  columns: (1.8fr, 1fr, 0.8fr, 2.5fr, 1fr),
+  stroke: 0.5pt + luma(180),
+  inset: 5pt
+)
+```
+
+| Repository | Branch | Commit Id | Commit Message | Commited on |
+| :--- | :--- | :--- | :--- | :--- |
+| SeniorsInProcess/Prothia-Landing-Page | develop | `e5acca4` | Feat(landing): complete landing page structure and content in index.html | 17/09/2026 |
+| SeniorsInProcess/Prothia-Landing-Page | develop | `b2c7cce` | Feat(landing): complete landing page styles and responsive layout in styles.css | 17/09/2026 |
+| SeniorsInProcess/Prothia-Landing-Page | develop | `f2b24fc` | feat(landing): complete main javascript interactions and logic in main.js | 17/09/2026 |
+| SeniorsInProcess/Prothia-Landing-Page | develop | `a4d9681` | feat(landing): complete hero sequence animation logic in hero-sequence.js | 17/09/2026 |
+| SeniorsInProcess/Prothia-Landing-Page | develop | `a4d9681` | feat(landing): complete internationalization logic and language switcher | 17/09/2026 |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+---
+
+#### 5.2.1.5. Execution Evidence for Sprint Review
+
+Capturas de pantalla de la Landing Page implementada en vistas Desktop y Mobile:
+
+![](../SeniorsInProcess-Pandoc/assets/Execution-Evidence-Landing.png){ width=90% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/Execution-Evidence-LandingMobile.png){ width=45% }
+
+* **URL de la Landing Page:** https://upc-pre-202620-1asi0730-8155-seniorsip.github.io/SeniorsInProcess-Prothia-LandingPage/
+* **Video Demostrativo:** https://upcedupe-my.sharepoint.com/:v:/g/personal/u202421065_upc_edu_pe/IQDNRf7YFyx2S7sfhe8y7z-aAemJubaEn3IlURxzwNnz_MM?e=NuhSGo
+
+---
+
+#### 5.2.1.6. Services Documentation Evidence for Sprint Review
+Durante este Sprint 1, el esfuerzo del equipo se concentró de manera exclusiva en el desarrollo del Landing Page estático (HTML, CSS y JavaScript) y en establecer la identidad visual del producto. Dado que el alcance funcional de esta iteración no contempló aún el desarrollo del backend (RESTful API), no se cuenta con endpoints documentados mediante OpenAPI/Swagger para esta entrega.
+
+#### 5.2.1.7. Software Deployment Evidence for Sprint Review
+Para asegurar el acceso público a la propuesta de Prothia, el Landing Page fue desplegado utilizando GitHub Pages desde la rama `develop` del repositorio respectivo:
+
+![](../SeniorsInProcess-Pandoc/assets/github-pages.png){ width=90% }
+
+---
+
+#### 5.2.1.8. Team Collaboration Insights during Sprint 
+
+El trabajo en equipo durante el Sprint 1 fluyó bajo GitFlow. Cada integrante trabajó en ramas `feature/` específicas y abrió Pull Requests hacia `develop`, los cuales fueron revisados por Ana Camila antes de su integración:
+
+![](../SeniorsInProcess-Pandoc/assets/Github-Insights.png){ width=90% }
+
+---
+
+### 5.2.2. Sprint 2
+
+Durante el Sprint 2, el equipo enfocó su trabajo en aplicar mejoras a la Landing Page y en desarrollar y desplegar la primera versión funcional de la aplicación web de Prothia, implementando todos los Bounded Contexts definidos en la arquitectura DDD.
+
+#### 5.2.2.1. Sprint Planning 2
+
+```{=typst}
+#set table(
+  columns: (1.5fr, 3.5fr),
+  stroke: 0.5pt + luma(180),
+  inset: 6pt
+)
+```
+
+| **Campo** | **Detalle** |
+| :--- | :--- |
+| **Sprint #** | Sprint 2 |
+| **Date / Time** | 2026-10-01 \| 8:00 PM |
+| **Location** | Reunión virtual mediante Discord y Microsoft Teams |
+| **Prepared By** | Patricio Farias, Ana Camila |
+| **Attendees** | Ana Camila Patricio Farias, Oscar Diego Checa Burga, Leonardo Felix Dextre Flores, Carlos Matthew Salcedo Correa, Rafael Andre Barrenechea Bustamante |
+| **Review Summary** | Se validó la versión mejorada de la Landing Page con conexión directa hacia la aplicación web y los módulos frontend en Vue 3 y PrimeVue. |
+| **Sprint Goal** | Implementar mejoras en la Landing Page y desarrollar y desplegar la Web Application asegurando coherencia visual, soporte multilingüe (ES/EN) y acceso diferenciado por roles. |
+
+---
+
+#### 5.2.2.2. Aspect Leaders and Collaborators
+
+| Integrante | GitHub | Aplicación Web | Despliegue Web | Documentación |
+| :--- | :--- | :---: | :---: | :---: |
+| **Patricio Farias, Ana Camila** | anacamilapatricio-sketch | L | C | L |
+| **Checa Burga, Oscar Diego** | OscarCheca | L | C | L |
+| **Dextre Flores, Leonardo Felix** | leo-dex45 | C | L | C |
+| **Salcedo Correa, Carlos Matthew** | Matthewnhfe | L | L | C |
+| **Barrenechea Bustamante, Rafael Andre** | yafussssss | C | C | C |
+
+---
+
+#### 5.2.2.3. Sprint Backlog 2
+
+![](../SeniorsInProcess-Pandoc/assets/sprint2.png){ width=95% }
+
+*Tablero Trello Sprint 2:* https://trello.com/invite/b/6a3482081843e32dea421094/ATTI18eefa82ccf88b07429958c3ca4d886e7D9A78CB/sprint-2-prothia
+
+```{=typst}
+#set text(size: 7.5pt)
+#set table(
+  columns: (0.8fr, 2.2fr, 1.2fr, 2.5fr, 0.6fr, 1.1fr, 0.7fr),
+  stroke: 0.5pt + luma(180),
+  inset: 4.5pt
+)
+```
+
+| Story ID | Título Historia | Task ID | Tarea Técnica | Puntos | Asignado | Estado |
+| :--- | :--- | :--- | :--- | :---: | :--- | :---: |
+| US-01 | Registro de pacientes | US001TASK001 | Entidad `Patient`, store y formulario de alta clínica con validación de DNI y nivel K. | 3 | Oscar | Done |
+| US-02 | Asociación de prótesis | US002TASK001 | Diálogo modal en workshop para vincular prótesis a paciente. | 3 | Leonardo | Done |
+| US-03 | Consulta de ficha clínica | US003TASK001 | Directorio, filtros y vista 360 del paciente con prótesis activa. | 2 | Oscar | Done |
+| US-04 | Dashboard biomecánico | US004TASK001 | Vista clínica con métricas de cadencia, simetría y ángulo sagital. | 4 | Oscar | Done |
+| US-05 | Historial biomecánico | US005TASK001 | Monitoreo histórico de sesiones en portal paciente. | 3 | Carlos | Done |
+| US-06 | Biofeedback en vivo | US006TASK001 | Pantalla de telemetría en vivo con indicadores de desalineación. | 4 | Carlos | Done |
+| US-07 | Asignación de ejercicios | US007TASK001 | Entidades `Prescription` y `Exercise`, store y editor de rutinas. | 4 | Camila | Done |
+| US-08 | Cumplimiento de ejercicios | US008TASK001 | Lista interactiva en patient-portal para marcar series completadas. | 3 | Carlos | Done |
+| US-09 | Progreso de rehabilitación | US009TASK001 | Dashboard "Mi Día" con tasa porcentual de adherencia semanal. | 3 | Carlos | Done |
+| US-10 | Alerta de postura incorrecta | US010TASK001 | Store y bandeja de eventos críticos en monitoring. | 3 | Oscar | Done |
+| US-13 | Historial técnico prótesis | US013TASK001 | Entidad `Prosthesis`, catálogo de flota y bitácora de intervenciones. | 3 | Leonardo | Done |
+| US-14 | Programación preventiva | US014TASK001 | Store Pinia y calendario de citas técnicas agendadas en taller. | 3 | Leonardo | Done |
+| US-15 | Alerta de fatiga mecánica | US015TASK001 | Avisos automáticos por ciclos de uso o fuerza crítica en taller. | 2 | Leonardo | Done |
+| US-16 | Chat paciente-clínica | US016TASK001 | Entidad `ClinicalMessage` y vista de mensajería bidireccional. | 3 | Camila/Carlos | Done |
+| US-17 | Transmisiones a ortopedia | US017TASK001 | Formulario y servicio para enviar fichas técnicas al taller. | 4 | Camila | Done |
+| US-18 | Centro de notificaciones | US018TASK001 | Bounded context `option` con menú y avisos de cuenta. | 3 | Rafael | Done |
+| US-19 | Suscripción clínica | US019TASK001 | Entidades `ClinicSubscription` y vista de facturación en billing. | 4 | Leonardo | Done |
+| US-20 | Licencia de taller | US020TASK001 | Control de licencia corporativa y cupos de prótesis activas. | 2 | Leonardo | Done |
+| US-21 | Estado de suscripción | US021TASK001 | Barra de cupos activos, vigencia y facturas electrónicas. | 2 | Leonardo | Done |
+| US-38 | Reporte de progreso clínico | US038TASK001 | Entidad `ClinicalReport` y generador con firma digital y colegiatura. | 4 | Carlos | Done |
+| US-39 | Exportación de datos | US039TASK001 | Controles para exportar series de marcha en CSV y PDF. | 2 | Carlos | Done |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+---
+
+#### 5.2.2.4. Development Evidence for Sprint Review
+
+```{=typst}
+#set text(size: 7.5pt)
+#set table(
+  columns: (1.5fr, 1.8fr, 0.8fr, 2.8fr, 3fr),
+  stroke: 0.5pt + luma(180),
+  inset: 4.5pt
+)
+```
+
+| Repositorio | Autor / Branch | Commit Id | Commit Message | Descripción del cambio |
+| :--- | :--- | :--- | :--- | :--- |
+| Prothia-Frontend | anacamilapatricio-sketch | `de2aa3c` | chore: initial commit | Inicializa el repositorio base en Vue 3 y Vite. |
+| Prothia-Frontend | anacamilapatricio-sketch | `6e21554` | chore: clean up code | Limpia plantilla eliminando archivos no utilizados. |
+| Prothia-Frontend | anacamilapatricio-sketch | `a0a6754` | build: add dependencies | Agrega dependencias de PrimeVue, Pinia, Axios y Vue I18n. |
+| Prothia-Frontend | anacamilapatricio-sketch | `b680551` | feat(i18n): add support | Configura soporte multilingüe en inglés y español. |
+| Prothia-Frontend | anacamilapatricio-sketch | `2765848` | feat(router): in-app navigation | Incorpora enrutador principal de navegación interna. |
+| Prothia-Frontend | anacamilapatricio-sketch | `b991c56` | feat(state): pinia management | Integra Pinia para la gestión centralizada de estado. |
+| Prothia-Frontend | anacamilapatricio-sketch | `4c627e0` | feat(env): environment vars | Añade variables de entorno de desarrollo y producción. |
+| Prothia-Frontend | anacamilapatricio-sketch | `79385f9` | feat(ui): primevue theme | Configura PrimeVue con tema visual Material Design. |
+| Prothia-Frontend | OscarCheca | `2d73c91` | feat(shared): BaseApi infrastructure | Implementa clases base HTTP para consumo de APIs. |
+| Prothia-Frontend | OscarCheca | `2f19f47` | feat(shared): role store | Crea store compartido para rol activo de usuario. |
+| Prothia-Frontend | OscarCheca | `6a76f6e` | feat(shared): presentation views | Agrega vistas y componentes del módulo compartido. |
+| Prothia-Frontend | OscarCheca | `8326e33` | feat(monitoring): add domain | Crea entidades de alertas y monitoreo biomecánico. |
+| Prothia-Frontend | anacamilapatricio-sketch | `fe3110e` | feat(communication): domain entities | Define entidades de mensajes clínicos y transmisiones. |
+| Prothia-Frontend | anacamilapatricio-sketch | `86cd7ba` | feat(communication): workshop view | Desarrolla vista de coordinación con talleres y rutas. |
+| Prothia-Frontend | anacamilapatricio-sketch | `48d668f` | feat(prescription): domain entities | Entidades de prescripción terapéutica y ejercicios. |
+| Prothia-Frontend | anacamilapatricio-sketch | `9a23e41` | feat(prescription): editor view | Construye vista del editor de planes clínicos. |
+| Prothia-Frontend | leo-dex45 | `1e22528` | feat(billing): domain entities | Entidades de suscripción clínica y facturas. |
+| Prothia-Frontend | leo-dex45 | `1344515` | feat(billing): subscription view | Desarrolla vista de administración de suscripción. |
+| Prothia-Frontend | Matthewnhfe | `d7c4dca` | feat(analytics): report entity | Define entidad de informe clínico de evolución. |
+| Prothia-Frontend | Matthewnhfe | `1466900` | feat(patient-portal): portal routing | Construye estructura visual y rutas del portal paciente. |
+| Prothia-Frontend | Matthewnhfe | `dba99d2` | feat(patient-portal): dashboard views | Añade dashboard "Mi Día" y vista de rutina diaria. |
+| Prothia-Frontend | Matthewnhfe | `90fa5d1` | feat(patient-portal): live telemetry | Implementa telemetría en vivo e historial de marcha. |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+---
+
+#### 5.2.2.5. Execution Evidence for Sprint Review
+
+* **Aplicación Web Desplegada:** https://prothia-web-app-7003f.web.app/
+* **Landing Page Desplegada:** https://upc-pre-202620-1asi0730-8155-seniorsip.github.io/SeniorsInProcess-Prothia-LandingPage/
+
+**Figura 1. Inicio de Sesión y Selección de Rol (Módulo IAM):**  
+![](../SeniorsInProcess-Pandoc/assets/iam.png){ width=85% }
+
+\
+
+**Figura 2. Dashboard Principal del Paciente ("Mi Día" - Patient Portal):**  
+![](../SeniorsInProcess-Pandoc/assets/figura2.png){ width=85% }
+
+\
+
+**Figura 3. Telemetría Biomecánica en Vivo e Historial de Marcha:**  
+![](../SeniorsInProcess-Pandoc/assets/figura3.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/marcha.png){ width=85% }
+
+\
+
+**Figura 4. Mis Ejercicios y Mensajería Clínica del Paciente:**  
+![](../SeniorsInProcess-Pandoc/assets/ejercicios.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/mensajeria.png){ width=85% }
+
+\
+
+**Figura 5. Dashboard Clínico y Alta de Pacientes (Módulo Patients):**  
+![](../SeniorsInProcess-Pandoc/assets/clinica.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/paciente.png){ width=85% }
+
+\
+
+**Figura 6. Prescripción Terapéutica y Centro de Alertas (Prescription & Monitoring):**  
+![](../SeniorsInProcess-Pandoc/assets/prescripcion.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/alertas.png){ width=85% }
+
+\
+
+**Figura 7. Coordinación con Ortopedia, Reportes y Suscripción (Communication, Analytics & Billing):**  
+![](../SeniorsInProcess-Pandoc/assets/reporte.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/suscripcion.png){ width=85% }
+
+\
+
+**Figura 8. Portal del Taller Ortopédico: Flota, Mantenimiento y Alertas (Módulo Workshop):**  
+![](../SeniorsInProcess-Pandoc/assets/taller.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/flota.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/mantenimiento.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/alertasss.png){ width=85% }
+
+---
+
+#### 5.2.2.6. Services Documentation Evidence for Sprint Review
+
+Durante el Sprint 2 se implementaron los servicios de consumo HTTP en el frontend apoyados en la infraestructura `BaseApi` y `BaseEndpoint` (Axios) y en clases Assembler para transformar los recursos JSON hacia entidades de dominio.
+
+* **URL base local (JSON Server):** `http://localhost:3000`
+* **Repositorio de servicios y datos:** https://github.com/upc-pre-202620-1asi0730-8155-SeniorsIP/SeniorsInProcess-Prothia-Frontend
+
+```{=typst}
+#set text(size: 7.2pt)
+#set table(
+  columns: (1.5fr, 0.8fr, 2.2fr, 2.5fr, 3fr),
+  stroke: 0.5pt + luma(180),
+  inset: 4pt
+)
+```
+
+| Módulo / Acción | Método | Endpoint Local | Carga Útil (Payload) | Respuesta Ejemplo |
+| :--- | :---: | :--- | :--- | :--- |
+| Consultar pacientes | GET | `/patients` | Ninguno | `[{"id":1,"fullName":"Carlos Mendoza","kLevel":"K3"}]` |
+| Registrar paciente | POST | `/patients` | Body JSON (`Patient`) | `{"id":5,"dni":"45892104","amputationLevel":"Transtibial"}` |
+| Consultar sesiones | GET | `/gaitSessions` | Ninguno | `[{"id":1,"cadence":96,"symmetry":92.4}]` |
+| Consultar alertas | GET | `/alerts` | Ninguno | `[{"id":1,"patientName":"Carlos Mendoza","severity":"Warning"}]` |
+| Actualizar umbrales | PUT | `/thresholds/1` | Body JSON (`Threshold`) | `{"id":1,"maxPelvicTilt":12,"maxAsymmetry":15}` |
+| Publicar prescripción | POST | `/prescriptions` | Body JSON (`Prescription`) | `{"id":1,"patientId":1,"phase":"Fase 2","adherence":88}` |
+| Transmitir ficha | POST | `/transmissions` | Body JSON (`Transmission`) | `{"id":1,"workshop":"Ortopedia Avanzada","status":"Sent"}` |
+| Enviar mensaje | POST | `/clinicalMessages` | Body JSON (`Message`) | `{"id":1,"sender":"Lic. Diego Salazar","text":"Mantén apoyo"}` |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+---
+
+#### 5.2.2.7. Software Deployment Evidence for Sprint Review
+
+* **Plataforma de Hosting:** Firebase Hosting (`prothia-web-app-7003f`).
+* **Repositorio Frontend:** https://github.com/upc-pre-202620-1asi0730-8155-SeniorsIP/SeniorsInProcess-Prothia-Frontend
+* **Aplicación Web Desplegada:** https://prothia-web-app-7003f.web.app/
+
+![](../SeniorsInProcess-Pandoc/assets/firebase.png){ width=90% }
+
+---
+
+#### 5.2.2.8. Team Collaboration Insights during Sprint
+
+```{=typst}
+#set table(
+  columns: (1.5fr, 1.2fr, 3.5fr),
+  stroke: 0.5pt + luma(180),
+  inset: 6pt
+)
+```
+
+| Integrante | GitHub | Aportes registrados en SeniorsInProcess-Prothia-Frontend |
+| :--- | :--- | :--- |
+| **Patricio Farias, Ana Camila** | anacamilapatricio-sketch | Inicialización de repositorio, configuración de dependencias, i18n, router, Pinia, variables de entorno y PrimeVue; desarrollo e integración de los módulos Communication y Prescription. |
+| **Checa Burga, Oscar Diego** | OscarCheca | Desarrollo de infraestructura Shared (BaseApi, BaseEndpoint, role store), diccionarios i18n e implementación de los módulos Monitoring y Patients. |
+| **Dextre Flores, Leonardo Felix** | leo-dex45 | Desarrollo completo de los módulos Billing (suscripciones, API y facturación) y Workshop (flota de prótesis, agenda técnica y alertas mecánicas). |
+| **Salcedo Correa, Carlos Matthew** | Matthewnhfe | Desarrollo de Analytics (reportes clínicos), Patient-Portal (layout, dashboard "Mi Día", telemetría en vivo, historial de marcha) y configuración raíz App-Setup. |
+| **Barrenechea Bustamante, Rafael Andre** | yafussssss | Desarrollo de IAM (entidad User, auth client, interceptores, auth guard, Pinia store, vistas login/registro), módulo Option y actualización de documentación. |
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/sprint2insight.png){ width=90% }
+
+```{=typst}
+#pagebreak()
+```
