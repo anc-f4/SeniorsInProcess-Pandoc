@@ -954,3 +954,179 @@ José produce entre 4 y 6 prótesis mensuales y efectúa alineaciones continuas.
 ```{=typst}
 #pagebreak()
 ```
+```{=typst}
+#pagebreak()
+```
+
+# Capítulo III: Requirements Specification
+
+## 3.1. User Stories
+
+Las historias de usuario para este proyecto se crearon en colaboración con el equipo de desarrollo, enfocándose en las necesidades principales de tres tipos de usuarios: paciente amputado, la clínica de rehabilitación y el centro ortopédico. Para mantener la organización, las historias se agruparon en épicas según sus funcionalidades y los criterios de aceptación se definieron utilizando la sintaxis Gherkin.
+
+```{=typst}
+#set text(size: 7.2pt)
+#set table(
+  columns: (1fr, 1.8fr, 2.5fr, 4.5fr, 0.8fr),
+  stroke: 0.5pt + luma(180),
+  inset: 4pt
+)
+```
+
+| Epic / Story ID | Título | Descripción | Criterios de Aceptación (Gherkin) | Epic ID |
+| :--- | :--- | :--- | :--- | :--- |
+| **EP-01** | **Gestión de Pacientes y Prótesis** | Registro y administración de información de pacientes y prótesis vinculadas a clínicas y centros ortopédicos. | Gestión base de usuarios clínicos y dispositivos. | EP-01 |
+| **US-01** | Registro de datos del paciente en la clínica | Como profesional de clínica, quiero registrar los datos clínicos de un paciente amputado para llevar un control de su proceso de rehabilitación. | **Escenario 1: Registro exitoso**\ • **Dado que** el profesional ingresa los datos obligatorios,\ • **Cuando** confirma el registro,\ • **Entonces** el paciente queda asociado a la clínica.\ \ **Escenario 2: Datos incompletos**\ • **Dado que** omite un dato obligatorio,\ • **Cuando** intenta confirmar,\ • **Entonces** el sistema muestra error y no guarda. | EP-01 |
+| **US-02** | Asociación de prótesis a un paciente | Como técnico ortopédico, quiero asociar una prótesis a un paciente para llevar el registro de qué dispositivo utiliza. | **Escenario 1: Asociación exitosa**\ • **Dado que** selecciona un paciente y prótesis disponible,\ • **Cuando** confirma la asociación,\ • **Entonces** queda vinculada.\ \ **Escenario 2: Ya asociada**\ • **Dado que** la prótesis está asignada a otro usuario,\ • **Cuando** intenta asociar,\ • **Entonces** el sistema avisa que no está disponible. | EP-01 |
+| **US-03** | Consulta de ficha del paciente | Como profesional de clínica, quiero consultar la ficha de un paciente para conocer su historial clínico y de prótesis. | **Escenario 1: Consulta exitosa**\ • **Dado que** selecciona un paciente de su clínica,\ • **Cuando** accede a su ficha,\ • **Entonces** visualiza datos clínicos y de prótesis.\ \ *Regla:* Solo personal autorizado accede al registro. | EP-01 |
+| **EP-02** | **Monitoreo Biomecánico en Tiempo Real** | Recopilación, procesamiento y visualización de datos biomecánicos fuera de la clínica. | Telemetría y cinemática en tiempo real. | EP-02 |
+| **US-04** | Visualización del dashboard biomecánico | Como profesional de clínica, quiero visualizar un dashboard con los datos biomecánicos recientes para evaluar su desempeño. | **Escenario 1: Datos disponibles**\ • **Dado que** existen registros cinemáticos,\ • **Cuando** entra al panel,\ • **Entonces** visualiza las métricas recientes.\ \ **Escenario 2: Sin datos**\ • **Dado que** no hay actividad,\ • **Cuando** entra al panel,\ • **Entonces** notifica ausencia de información. | EP-02 |
+| **US-05** | Consulta del historial de datos biomecánicos | Como paciente, quiero consultar el historial de mis datos biomecánicos para conocer la evolución de mi desempeño. | **Escenario 1: Historial disponible**\ • **Dado que** tiene registros previos,\ • **Cuando** abre su historial,\ • **Entonces** se muestran cronológicamente.\ \ **Escenario 2: Filtro por fecha**\ • **Dado que** elige un rango,\ • **Cuando** filtra,\ • **Entonces** muestra solo ese periodo. | EP-02 |
+| **US-06** | Identificación de postura o movimiento inadecuado | Como paciente, quiero recibir información sobre si mi postura fue adecuada para corregir mi marcha. | **Escenario 1: Postura inadecuada**\ • **Dado que** el sistema procesa la sesión,\ • **Cuando** detecta valores fuera de rango,\ • **Entonces** alerta de postura inadecuada.\ \ **Escenario 2: Postura correcta**\ • **Dado que** los valores son normales,\ • **Cuando** evalúa,\ • **Entonces** valida la postura adecuada. | EP-02 |
+| **EP-03** | **Seguimiento de Rehabilitación y Ejercicios** | Asignación, registro y seguimiento de los planes terapéuticos en el hogar. | Cumplimiento y adherencia al tratamiento. | EP-03 |
+| **US-07** | Asignación de plan de ejercicios | Como profesional de clínica, quiero asignar un plan personalizado para guiar la rehabilitación en casa. | **Escenario 1: Asignación exitosa**\ • **Dado que** define ejercicios y frecuencia,\ • **Cuando** confirma,\ • **Entonces** vincula el plan al paciente.\ \ **Escenario 2: Plan vacío**\ • **Dado que** no incluye ejercicios,\ • **Cuando** intenta guardar,\ • **Entonces** exige al menos un ejercicio. | EP-03 |
+| **US-08** | Registro de cumplimiento de ejercicios | Como paciente, quiero registrar la realización de ejercicios para evidenciar mi adherencia. | **Escenario 1: Registro exitoso**\ • **Dado que** completa un ejercicio,\ • **Cuando** lo marca,\ • **Entonces** actualiza el estado a realizado.\ \ **Escenario 2: Fuera de plan**\ • **Dado que** intenta marcar un ejercicio ajeno a su plan,\ • **Cuando** guarda,\ • **Entonces** rechaza la acción. | EP-03 |
+| **US-09** | Consulta del progreso de rehabilitación | Como profesional de clínica, quiero consultar el progreso de mis pacientes para evaluar la efectividad terapéutica. | **Escenario 1: Progreso disponible**\ • **Dado que** hay datos de cumplimiento,\ • **Cuando** consulta el progreso,\ • **Entonces** visualiza tasa de adherencia.\ \ **Escenario 2: Sin registros**\ • **Dado que** el paciente no ha registrado rutinas,\ • **Cuando** revisa,\ • **Entonces** alerta sin progreso. | EP-03 |
+| **EP-04** | **Sistema de Alertas y Notificaciones** | Generación de alertas automáticas ante patrones lesivos o compensaciones musculares. | Triaje clínico preventivo. | EP-04 |
+| **US-10** | Recepción de alerta por postura incorrecta | Como profesional de clínica, quiero recibir una alerta cuando se detecte una postura incorrecta para intervenir a tiempo. | **Escenario 1: Alerta generada**\ • **Dado que** detecta un patrón anómalo,\ • **Cuando** se crea el evento,\ • **Entonces** notifica al profesional.\ \ **Escenario 2: Cinemática normal**\ • **Dado que** todo está en rango,\ • **Cuando** evalúa,\ • **Entonces** no emite alerta. | EP-04 |
+| **US-11** | Configuración de umbrales de alerta | Como profesional de clínica, quiero configurar los umbrales para adaptar el sistema a cada paciente. | **Escenario 1: Configuración exitosa**\ • **Dado que** define nuevos límites biomecánicos,\ • **Cuando** guarda cambios,\ • **Entonces** aplica a sesiones futuras.\ \ *Regla:* Modificable solo por personal autorizado. | EP-04 |
+| **US-12** | Consulta del historial de alertas | Como profesional de clínica, quiero consultar el historial de alertas para revisar los eventos críticos. | **Escenario 1: Historial con alertas**\ • **Dado que** existen eventos registrados,\ • **Cuando** entra al módulo,\ • **Entonces** lista por fecha.\ \ **Escenario 2: Sin alertas**\ • **Dado que** no hay incidentes,\ • **Cuando** entra,\ • **Entonces** notifica sin novedades. | EP-04 |
+| **EP-05** | **Gestión de Mantenimiento de Prótesis** | Historial técnico y programación de mantenimiento preventivo para ortopedias. | Ciclo de vida y telemetría de piezas. | EP-05 |
+| **US-13** | Registro de historial técnico de la prótesis | Como técnico ortopédico, quiero registrar intervenciones para controlar piezas y desgastes. | **Escenario 1: Registro exitoso**\ • **Dado que** ingresa datos de mantenimiento,\ • **Cuando** guarda,\ • **Entonces** actualiza el historial técnico.\ \ **Escenario 2: Campos vacíos**\ • **Dado que** omite campos requeridos,\ • **Cuando** intenta guardar,\ • **Entonces** solicita completar datos. | EP-05 |
+| **US-14** | Programación de mantenimiento preventivo | Como técnico ortopédico, quiero agendar fechas de revisión para anticiparme a fallas. | **Escenario 1: Agendamiento exitoso**\ • **Dado que** selecciona una fecha futura,\ • **Cuando** confirma,\ • **Entonces** agenda el mantenimiento.\ \ **Escenario 2: Fecha pasada**\ • **Dado que** selecciona una fecha anterior a hoy,\ • **Cuando** intenta guardar,\ • **Entonces** alerta fecha inválida. | EP-05 |
+| **US-15** | Recepción de alerta de mantenimiento | Como técnico ortopédico, quiero recibir alertas por horas de uso acumulado para prevenir daños. | **Escenario 1: Alerta por desgaste**\ • **Dado que** el uso supera el límite fijado,\ • **Cuando** evalúa telemetría,\ • **Entonces** envía alerta al taller.\ \ **Escenario 2: Desgaste normal**\ • **Dado que** está dentro de vida útil,\ • **Cuando** procesa,\ • **Entonces** no emite aviso. | EP-05 |
+| **EP-06** | **Comunicación entre Actores** | Mensajería estructurada entre paciente, clínica y taller ortopédico. | Interoperabilidad e intercambio seguro. | EP-06 |
+| **US-16** | Envío de mensajes paciente-clínica | Como paciente, quiero enviar mensajes a mi clínica para resolver dudas de tratamiento. | **Escenario 1: Mensaje enviado**\ • **Dado que** redacta una consulta,\ • **Cuando** presiona enviar,\ • **Entonces** se entrega al terapeuta.\ \ **Escenario 2: Mensaje vacío**\ • **Dado que** no escribe texto,\ • **Cuando** envía,\ • **Entonces** impide el envío. | EP-06 |
+| **US-17** | Compartir información con la ortopedia | Como profesional de clínica, quiero compartir datos de evolución con el taller para coordinar ajustes. | **Escenario 1: Envío exitoso**\ • **Dado que** selecciona métricas clínicas,\ • **Cuando** autoriza el envío,\ • **Entonces** el taller accede a los datos.\ \ *Regla:* Solo con la ortopedia asignada al paciente. | EP-06 |
+| **US-18** | Consulta de notificaciones generales | Como usuario, quiero ver mis notificaciones generales para mantenerme al día de mi cuenta. | **Escenario 1: Notificaciones pendientes**\ • **Dado que** hay avisos pendientes,\ • **Cuando** abre la bandeja,\ • **Entonces** se listan ordenadas.\ \ **Escenario 2: Sin avisos**\ • **Dado que** no hay novedades,\ • **Cuando** entra,\ • **Entonces** muestra bandeja vacía. | EP-06 |
+| **EP-07** | **Suscripciones y Licenciamiento** | Planes anuales para clínicas y licencias de software para ortopedias. | Monetización y control de accesos B2B. | EP-07 |
+| **US-19** | Contratación de suscripción anual | Como administrador de clínica, quiero pagar la suscripción anual para dar acceso a mis pacientes. | **Escenario 1: Pago aprobado**\ • **Dado que** completa la transacción con éxito,\ • **Cuando** valida pasarela,\ • **Entonces** activa la cuenta institucional.\ \ **Escenario 2: Pago rechazado**\ • **Dado que** falla el cobro,\ • **Cuando** procesa,\ • **Entonces** notifica error de pago. | EP-07 |
+| **US-20** | Adquisición de licencia de software | Como administrador de ortopedia, quiero comprar una licencia técnica para gestionar prótesis. | **Escenario 1: Compra exitosa**\ • **Dado que** selecciona plan y paga,\ • **Cuando** valida,\ • **Entonces** activa el módulo de taller.\ \ **Escenario 2: Licencia vigente**\ • **Dado que** ya cuenta con una activa,\ • **Cuando** intenta comprar,\ • **Entonces** alerta que ya posee licencia. | EP-07 |
+| **US-21** | Consulta de estado de licencia | Como administrador, quiero consultar la vigencia de mi contrato para prever renovaciones. | **Escenario 1: Licencia activa**\ • **Dado que** el plan está vigente,\ • **Cuando** consulta,\ • **Entonces** muestra fecha de vencimiento.\ \ **Escenario 2: Vencida**\ • **Dado que** expiró,\ • **Cuando** ingresa,\ • **Entonces** solicita renovación. | EP-07 |
+| **EP-08** | **Landing Page y Captación** | Sitio web estático informativo para difundir valor y captar prospectos B2B. | Conversión, difusión y contacto comercial. | EP-08 |
+| **US-22** | Métricas e impacto en el Hero | Como visitante, quiero leer la propuesta central e indicadores en la cabecera para entender el producto. | **Escenario 1: Carga visual**\ • **Dado que** entra a la web,\ • **Cuando** visualiza el Hero,\ • **Entonces** muestra resumen e impacto.\ \ **Escenario 2: Botón de acción**\ • **Dado que** hace clic en registro,\ • **Cuando** presiona,\ • **Entonces** baja hacia el formulario. | EP-08 |
+| **US-23** | Problemática de rehabilitación | Como visitante, quiero informarme de la falta de seguimiento para comprender qué soluciona Prothia. | **Escenario 1: Lectura de retos**\ • **Dado que** navega por desafíos,\ • **Cuando** revisa los paneles,\ • **Entonces** expone la falta de datos y desgaste. | EP-08 |
+| **US-24** | Ecosistema colaborativo | Como visitante, quiero visualizar cómo interactúan paciente, clínica y taller en la plataforma. | **Escenario 1: Diagrama interactivo**\ • **Dado que** llega al ecosistema,\ • **Cuando** explora el gráfico,\ • **Entonces** ilustra el flujo integral. | EP-08 |
+| **US-25** | Solución para clínicas | Como terapeuta visitante, quiero ver las herramientas clínicas para evaluar su utilidad asistencial. | **Escenario 1: Pestaña clínica**\ • **Dado que** elige vista clínica,\ • **Cuando** abre detalle,\ • **Entonces** exhibe expedientes y telemetría. | EP-08 |
+| **US-26** | Solución para ortopedias | Como ortoprotesista visitante, quiero revisar las herramientas de taller para gestionar prótesis. | **Escenario 1: Pestaña taller**\ • **Dado que** elige vista taller,\ • **Cuando** abre detalle,\ • **Entonces** muestra alertas y trazabilidad. | EP-08 |
+| **US-27** | Solución para pacientes | Como paciente visitante, quiero conocer las ventajas de entrenar con el sistema en casa. | **Escenario 1: Pestaña paciente**\ • **Dado que** elige vista paciente,\ • **Cuando** abre detalle,\ • **Entonces** destaca biofeedback y soporte. | EP-08 |
+| **US-28** | Catálogo de herramientas clave | Como visitante, quiero explorar las funciones técnicas para validar la precisión del sistema. | **Escenario 1: Tarjetas técnicas**\ • **Dado que** entra a herramientas,\ • **Cuando** lee tarjetas,\ • **Entonces** detalla cadencia, simetría y apoyo. | EP-08 |
+| **US-29** | Video demostrativo | Como visitante, quiero ver un video de prueba para comprobar el funcionamiento real del sistema. | **Escenario 1: Reproducción en sitio**\ • **Dado que** accede al bloque de video,\ • **Cuando** da play,\ • **Entonces** reproduce el clip en la página. | EP-08 |
+| **US-30** | Comparador de precios | Como visitante, quiero alternar entre cobro mensual y anual para calcular mi presupuesto. | **Escenario 1: Alternar ciclo**\ • **Dado que** conmuta el selector,\ • **Cuando** alterna,\ • **Entonces** muestra precios y descuento anual.\ \ **Escenario 2: Selección de plan**\ • **Dado que** elige contratar,\ • **Cuando** hace clic,\ • **Entonces** redirige al formulario de compra. | EP-08 |
+| **US-31** | Respaldo institucional | Como visitante, quiero conocer los estándares científicos que avalan el sistema. | **Escenario 1: Rigor técnico**\ • **Dado que** entra a respaldo,\ • **Cuando** lee la sección,\ • **Entonces** presenta normativas y seguridad. | EP-08 |
+| **US-32** | Testimonios clínicos | Como visitante, quiero leer opiniones de médicos y usuarios para validar la experiencia del producto. | **Escenario 1: Fichas de testimonios**\ • **Dado que** baja a testimonios,\ • **Cuando** revisa citas,\ • **Entonces** muestra cargos e instituciones. | EP-08 |
+| **US-33** | Preguntas frecuentes (FAQ) | Como visitante, quiero revisar las dudas habituales para resolver consultas inmediatas. | **Escenario 1: Acordeón interactivo**\ • **Dado que** selecciona una duda,\ • **Cuando** hace clic,\ • **Entonces** despliega la respuesta.\ \ **Escenario 2: Colapso**\ • **Dado que** vuelve a dar clic,\ • **Cuando** presiona,\ • **Entonces** oculta el texto. | EP-08 |
+| **US-34** | Formulario de contacto comercial | Como directivo de clínica, quiero enviar mis datos para agendar una demostración en vivo. | **Escenario 1: Envío exitoso**\ • **Dado que** completa los campos requeridos,\ • **Cuando** envía,\ • **Entonces** registra el lead y confirma.\ \ **Escenario 2: Campos incompletos**\ • **Dado que** faltan datos,\ • **Cuando** envía,\ • **Entonces** marca campos obligatorios. | EP-08 |
+| **US-35** | Suscripción a newsletter | Como visitante, quiero registrar mi email para recibir artículos sobre biomecánica. | **Escenario 1: Suscripción válida**\ • **Dado que** ingresa email nuevo,\ • **Cuando** suscribe,\ • **Entonces** confirma registro exitoso.\ \ **Escenario 2: Email repetido**\ • **Dado que** ya estaba registrado,\ • **Cuando** envía,\ • **Entonces** notifica duplicidad. | EP-08 |
+| **US-36** | Selector de idioma (ES/EN) | Como visitante, quiero cambiar entre inglés y español para leer en mi idioma de preferencia. | **Escenario 1: Alternancia idiomática**\ • **Dado que** elige el idioma deseado,\ • **Cuando** conmuta,\ • **Entonces** traduce la página al instante.\ \ *Regla:* Persiste durante toda la sesión. | EP-08 |
+| **US-37** | Políticas de privacidad y seguridad | Como visitante, quiero revisar las normas de confidencialidad médica y cifrado de datos. | **Escenario 1: Enlace en footer**\ • **Dado que** baja al pie de página,\ • **Cuando** hace clic en privacidad,\ • **Entonces** exhibe normas AES-256 y WCAG. | EP-08 |
+| **EP-09** | **Reportes y Analítica** | Generación de reportes clínicos e indicadores consolidados de evolución. | Business Intelligence y trazabilidad médica. | EP-09 |
+| **US-38** | Reporte de progreso del paciente | Como profesional de clínica, quiero generar reportes para documentar la evolución del tratamiento. | **Escenario 1: Generación exitosa**\ • **Dado que** hay datos suficientes,\ • **Cuando** genera reporte,\ • **Entonces** descarga documento médico.\ \ **Escenario 2: Sin datos**\ • **Dado que** faltan registros,\ • **Cuando** solicita,\ • **Entonces** notifica información insuficiente. | EP-09 |
+| **US-39** | Exportación de datos históricos | Como profesional de clínica, quiero exportar datos para interconsultas médicas. | **Escenario 1: Exportación exitosa**\ • **Dado que** define rango de fechas válido,\ • **Cuando** exporta,\ • **Entonces** descarga archivo estructurado.\ \ **Escenario 2: Rango vacío**\ • **Dado que** no hay datos en el rango,\ • **Cuando** exporta,\ • **Entonces** notifica sin registros. | EP-09 |
+| **US-40** | Indicadores globales de la clínica | Como médico director, quiero ver analíticas agregadas para evaluar el rendimiento global. | **Escenario 1: Métricas activas**\ • **Dado que** la clínica tiene pacientes,\ • **Cuando** abre analíticas,\ • **Entonces** muestra KPIs consolidados.\ \ **Escenario 2: Sin pacientes**\ • **Dado que** es nueva,\ • **Cuando** entra,\ • **Entonces** muestra panel vacío. | EP-09 |
+| **TS-01** | Endpoints de pacientes y prótesis | Como developer, implementar la API RESTful para gestión de usuarios y prótesis. | **Escenario 1: POST exitoso (200 OK)**\ • **Dado que** envía solicitud con datos válidos,\ • **Cuando** el servidor procesa,\ • **Entonces** confirma la asociación.\ \ **Escenario 2: Prótesis ocupada (409 Conflict)**\ • **Dado que** ya está asignada,\ • **Cuando** procesa,\ • **Entonces** rechaza por conflicto. | EP-01 |
+| **TS-02** | Ingesta de datos biomecánicos | Como developer, implementar el endpoint RESTful de recepción telemétrica de sensores. | **Escenario 1: Ingesta exitosa (201 Created)**\ • **Dado que** envía carga útil válida,\ • **Cuando** procesa,\ • **Entonces** persiste y retorna 201.\ \ **Escenario 2: Formato inválido (400 Bad Request)**\ • **Dado que** el payload es erróneo,\ • **Cuando** valida,\ • **Entonces** responde con 400. | EP-02 |
+| **TS-03** | Endpoints de planes de ejercicio | Como developer, implementar la API para asignación y control de cumplimiento de rutinas. | **Escenario 1: PUT exitoso (200 OK)**\ • **Dado que** envía actualización de ejercicio válido,\ • **Cuando** procesa,\ • **Entonces** actualiza estado a 200.\ \ **Escenario 2: Ejercicio inválido (400 Bad Request)**\ • **Dado que** no pertenece al plan,\ • **Cuando** intenta actualizar,\ • **Entonces** responde 400. | EP-03 |
+| **TS-04** | API de alertas críticas | Como developer, implementar endpoints para activar notificaciones automáticas ante eventos de riesgo. | **Escenario 1: Emisión exitosa**\ • **Dado que** detecta evento crítico,\ • **Cuando** invoca servicio de alerta,\ • **Entonces** notifica al profesional.\ \ **Escenario 2: Notificaciones inactivas**\ • **Dado que** el servicio está deshabilitado,\ • **Cuando** ocurre alerta,\ • **Entonces** solo guarda en log histórico. | EP-04 |
+| **TS-05** | API de mantenimiento de prótesis | Como developer, implementar servicios RESTful para registrar mantenimientos de taller. | **Escenario 1: POST exitoso (201 Created)**\ • **Dado que** fecha de mantenimiento es futura,\ • **Cuando** registra,\ • **Entonces** guarda y retorna 201.\ \ **Escenario 2: Fecha pasada (400 Bad Request)**\ • **Dado que** la fecha ya ocurrió,\ • **Cuando** valida,\ • **Entonces** rechaza con 400. | EP-05 |
+| **TS-06** | Endpoints de mensajería | Como developer, implementar servicios RESTful para intercambio de mensajes entre roles. | **Escenario 1: Envío exitoso (201 Created)**\ • **Dado que** remitente y receptor existen,\ • **Cuando** procesa,\ • **Entonces** persiste mensaje y retorna 201.\ \ **Escenario 2: Destinatario inexistente (404 Not Found)**\ • **Dado que** el ID no existe,\ • **Cuando** procesa,\ • **Entonces** responde con 404. | EP-06 |
+| **TS-07** | API de suscripciones y pagos | Como developer, implementar endpoints para validar compras y estado de planes B2B. | **Escenario 1: Activación exitosa (201 Created)**\ • **Dado que** pasarela aprueba transacción,\ • **Cuando** procesa,\ • **Entonces** habilita licencia a la cuenta.\ \ **Escenario 2: Pago rechazado (402 Payment Required)**\ • **Dado que** el banco deniega fondos,\ • **Cuando** procesa,\ • **Entonces** responde con 402. | EP-07 |
+| **TS-08** | Ingesta de formularios web | Como developer, exponer endpoints públicos para captar prospectos y registros de la Landing. | **Escenario 1: Demo exitosa (201 Created)**\ • **Dado que** envía datos válidos a /api/v1/leads,\ • **Cuando** almacena lead,\ • **Entonces** retorna 201 e ID de trámite.\ \ **Escenario 2: Email repetido (409 Conflict)**\ • **Dado que** ya existe en base de datos,\ • **Cuando** verifica,\ • **Entonces** responde con 409. | EP-08 |
+| **TS-09** | API de reportes analíticos | Como developer, implementar endpoints de agregación y descarga de archivos clínicos. | **Escenario 1: Descarga exitosa (200 OK)**\ • **Dado que** paciente tiene historial en rango,\ • **Cuando** procesa,\ • **Entonces** retorna archivo descargable.\ \ **Escenario 2: Sin datos (204 No Content)**\ • **Dado que** el periodo está vacío,\ • **Cuando** procesa,\ • **Entonces** retorna código 204. | EP-09 |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+---
+
+## 3.2. Impact Mapping
+
+El equipo desarrolló un Impact Mapping en colaboración utilizando la herramienta UXPressia para conectar las metas de negocio directamente con los requerimientos funcionales de la plataforma:
+
+![](../SeniorsInProcess-Pandoc/assets/Impact%20map.png){ width=100% }
+
+---
+
+## 3.3. Product Backlog
+
+Para mantener el proyecto organizado, se empleó la escala de Fibonacci (1, 2, 3, 5, 8) para estimar el esfuerzo de cada historia y tarea técnica:
+
+* **1:** Tareas sencillas y rápidas.
+* **2:** Tareas de complejidad moderada.
+* **3:** Tareas que requieren más tiempo y esfuerzo.
+* **5:** Tareas complejas que abarcan múltiples capas de software.
+* **8:** Tareas de muy alta complejidad técnica o de integración.
+
+```{=typst}
+#set text(size: 8.5pt)
+#set table(
+  columns: (0.8fr, 1.2fr, 4fr, 5fr, 1.2fr),
+  stroke: 0.5pt + luma(180),
+  inset: 5pt
+)
+```
+
+| # Orden | ID | Título | Descripción | Puntos |
+| :---: | :---: | :--- | :--- | :---: |
+| 1 | US-22 | Propuesta de valor en Hero | Como visitante, quiero consultar la propuesta de valor y las métricas de impacto en la cabecera. | 2 |
+| 2 | US-23 | Problemática de rehabilitación | Como visitante, quiero informarme sobre la brecha existente en el seguimiento de prótesis. | 1 |
+| 3 | US-24 | Ecosistema colaborativo | Como visitante, quiero visualizar cómo se conectan los tres actores del sistema. | 3 |
+| 4 | US-25 | Solución para clínicas | Como terapeuta visitante, quiero consultar las funciones orientadas al personal médico. | 2 |
+| 5 | US-26 | Solución para ortopedias | Como técnico ortopédico visitante, quiero consultar las herramientas de supervisión protésica. | 2 |
+| 6 | US-27 | Solución para pacientes | Como paciente visitante, quiero conocer los beneficios del uso cotidiano en casa. | 2 |
+| 7 | US-28 | Catálogo de herramientas clave | Como visitante, quiero revisar las capacidades técnicas para validar las métricas que captura. | 2 |
+| 8 | US-29 | Video de demostración | Como visitante, quiero visualizar un video demostrativo para ver el sistema en acción. | 1 |
+| 9 | US-30 | Comparador de planes de precios | Como visitante, quiero comparar los planes y alternar cobro mensual y anual. | 3 |
+| 10 | US-31 | Respaldo institucional | Como visitante, quiero conocer los estándares biomédicos que respaldan la plataforma. | 1 |
+| 11 | US-32 | Testimonios clínicos | Como visitante, quiero leer testimonios de profesionales y pacientes para verificar valor. | 1 |
+| 12 | US-33 | Preguntas frecuentes (FAQ) | Como visitante, quiero revisar dudas comunes para resolver inquietudes técnicas. | 1 |
+| 13 | US-36 | Alternancia de idioma | Como visitante, quiero cambiar el idioma entre español e inglés de forma reactiva. | 3 |
+| 14 | US-37 | Políticas de privacidad | Como visitante, quiero acceder a normas de privacidad médica y cifrado AES-256. | 1 |
+| 15 | TS-08 | Captación de prospectos API | Como Developer, disponer de endpoints para captar leads y suscripciones web. | 3 |
+| 16 | US-34 | Solicitud de demo comercial | Como médico de clínica, enviar datos institucionales para solicitar una cotización. | 3 |
+| 17 | US-35 | Suscripción a newsletter | Como visitante, registrar mi correo para recibir novedades de biomecánica. | 2 |
+| 18 | TS-01 | Gestión de pacientes y prótesis API | Como developer, implementar endpoints RESTful para asociar pacientes y dispositivos. | 5 |
+| 19 | US-01 | Registro de pacientes | Como profesional, registrar datos clínicos de un paciente amputado en el sistema. | 3 |
+| 20 | US-02 | Asociación de prótesis | Como técnico, asociar una prótesis a un paciente para registrar su dispositivo. | 3 |
+| 21 | US-03 | Consulta de ficha de paciente | Como profesional de clínica, consultar historial clínico y de prótesis de un paciente. | 2 |
+| 22 | TS-02 | Ingesta de datos biomecánicos API | Como developer, implementar endpoint RESTful que reciba telemetría de sensores. | 5 |
+| 23 | US-04 | Dashboard biomecánico | Como profesional de clínica, visualizar dashboard con métricas recientes de postura. | 5 |
+| 24 | US-05 | Historial biomecánico paciente | Como paciente, consultar el historial de mis registros para evaluar mi evolución. | 3 |
+| 25 | US-06 | Detección de marcha inadecuada | Como paciente, recibir alertas si mi postura o marcha presentó desvíos. | 5 |
+| 26 | TS-03 | Gestión de planes de ejercicio API | Como developer, implementar endpoints para asignar y marcar rutinas terapéuticas. | 3 |
+| 27 | US-07 | Asignación de ejercicios | Como profesional, pautar un plan de rehabilitación personalizado para el hogar. | 3 |
+| 28 | US-08 | Cumplimiento de ejercicios | Como paciente, marcar la ejecución de ejercicios para registrar adherencia. | 3 |
+| 29 | US-09 | Consulta de progreso clínico | Como profesional, revisar adherencia y cumplimiento del paciente a lo largo del tiempo. | 3 |
+| 30 | TS-04 | Gestión de alertas críticas API | Como developer, implementar el motor de alertas y notificaciones automáticas. | 5 |
+| 31 | US-11 | Configuración de umbrales | Como profesional, calibrar los rangos tolerables de marcha por cada paciente. | 3 |
+| 32 | US-10 | Alerta de postura incorrecta | Como profesional, recibir una notificación oportuna ante compensaciones musculares. | 5 |
+| 33 | US-12 | Historial de alertas clínicas | Como profesional, consultar cronológicamente eventos críticos y posturas anómalas. | 2 |
+| 34 | TS-05 | Gestión de mantenimiento API | Como developer, implementar endpoints para registrar revisiones de prótesis. | 3 |
+| 35 | US-13 | Registro técnico de prótesis | Como técnico, registrar piezas cambiadas, desajustes mecánicos y desgaste. | 3 |
+| 36 | US-14 | Programación preventiva | Como técnico, agendar fecha futura de mantenimiento para evitar roturas. | 2 |
+| 37 | US-15 | Alerta de desgaste protésico | Como técnico, recibir aviso automático cuando una pieza cumpla horas límite de uso. | 3 |
+| 38 | TS-06 | Mensajería interinstitucional API | Como developer, implementar endpoints para mensajería clínica-taller-paciente. | 3 |
+| 39 | US-16 | Chat paciente-clínica | Como paciente, consultar dudas médicas directamente con mi terapeuta tratante. | 3 |
+| 40 | US-17 | Compartir ficha técnica | Como profesional, autorizar el envío de datos biomecánicos a la ortopedia. | 3 |
+| 41 | US-18 | Centro de notificaciones | Como usuario, visualizar notificaciones generales y alertas del sistema. | 2 |
+| 42 | TS-07 | Gestión de suscripciones API | Como developer, implementar pasarela de pagos y activación de licencias B2B. | 5 |
+| 43 | US-19 | Suscripción anual clínica | Como directivo de clínica, adquirir plan anual para habilitar acceso institucional. | 5 |
+| 44 | US-20 | Licencia técnica ortopedia | Como encargado de taller, comprar licencia para control y trazabilidad de piezas. | 5 |
+| 45 | US-21 | Consulta de plan y vigencia | Como administrador, consultar fecha de caducidad y estado de renovación de licencia. | 2 |
+| 46 | TS-09 | Exportación y reportes API | Como developer, implementar generación y descarga de informes médicos en PDF. | 5 |
+| 47 | US-38 | Reporte de progreso clínico | Como profesional, generar reportes de evolución para la historia clínica del paciente. | 3 |
+| 48 | US-39 | Exportación de datos de marcha | Como profesional, exportar registros estructurados para interconsultas. | 3 |
+| 49 | US-40 | Indicadores globales de clínica | Como director médico, evaluar volumen de adherencia y pacientes activos en la sede. | 5 |
+
+```{=typst}
+#set text(size: 11pt)
+```
+
+\
+
+- **Tablero de Trello:** https://trello.com/invite/b/6aaa2414fe1250572c17b9fe/ATTIe7f0872c34d6ae28c8540edd005e015fC1DFC2EC/seniors-in-process-prothia
+
+```{=typst}
+#pagebreak()
+```
