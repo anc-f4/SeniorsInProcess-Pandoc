@@ -2264,3 +2264,112 @@ git push origin main
 ```{=typst}
 #pagebreak()
 ```
+
+```{=typst}
+#pagebreak()
+```
+
+# Recomendaciones
+
+1. **Priorización de funcionalidades críticas:** Continuar la implementación de Prothia priorizando las funcionalidades que aparecieron con mayor frecuencia e importancia durante el needfinding, especialmente el seguimiento de planes de rehabilitación, visualización de datos biomecánicos, generación de alertas y gestión del mantenimiento preventivo de las prótesis[cite: 24].
+
+2. **Acceso diferenciado por roles:** Implementar en los siguientes sprints la primera versión funcional de la Web Application manteniendo el acceso diferenciado por roles definido en los requisitos y en la arquitectura, de manera que pacientes, profesionales clínicos y técnicos ortopédicos accedan únicamente a la información y funciones correspondientes a sus responsabilidades[cite: 24].
+
+3. **Arquitectura desacoplada en el backend:** Desarrollar progresivamente el RESTful API y la persistencia de datos respetando los Bounded Contexts, componentes, clases y esquemas definidos durante el diseño técnico, evitando introducir dependencias innecesarias entre responsabilidades de dominio[cite: 24].
+
+4. **Validación temprana con usuarios:** Realizar pruebas de usabilidad con usuarios representativos de los tres segmentos antes de considerar definitivas las interfaces desarrolladas en Figma[cite: 24]. Estas pruebas deben permitir comprobar especialmente la facilidad para interpretar dashboards, consultar progreso, identificar alertas y acceder a información relacionada con mantenimiento[cite: 24].
+
+5. **Contraste de hipótesis y métricas Lean UX:** Durante las siguientes entregas, ejecutar las entrevistas de validación y evaluaciones heurísticas necesarias para contrastar las Hypothesis Statements y los criterios de éxito definidos durante Lean UX[cite: 24]. Los resultados deberán utilizarse para corregir assumptions que no coincidan con el comportamiento observado de los usuarios[cite: 24].
+
+6. **Integración progresiva de telemetría:** Validar progresivamente la forma en que se obtendrán y procesarán los datos biomecánicos, comenzando con datos controlados o simulados cuando sea necesario y posteriormente comprobando la integración con sensores compatibles, debido a que la disponibilidad y precisión de esta información representa una parte esencial de la propuesta de valor de Prothia[cite: 24].
+
+7. **Disciplina de control de versiones:** Mantener durante el desarrollo las prácticas de control de versiones establecidas para el proyecto, utilizando ramas de trabajo, mensajes de Conventional Commits y versiones identificables para facilitar la revisión de la participación del equipo y la trazabilidad entre requisitos, implementación y entregas[cite: 24].
+
+8. **Alcance de la Landing Page:** Utilizar la Landing Page desplegada como primer canal para presentar la propuesta de valor y captar interés de clínicas y centros ortopédicos, pero evitar utilizar su publicación como evidencia de validación del producto completo, debido a que las principales funciones de Prothia todavía requieren implementación y evaluación con usuarios reales[cite: 24].
+
+9. **Trazabilidad evolutiva de conclusiones:** Actualizar las conclusiones en cada entrega incorporando únicamente nueva evidencia obtenida durante el desarrollo y la validación[cite: 24]. De esta manera, las conclusiones actuales podrán contrastarse posteriormente con los resultados de la Web Application, Web Services, entrevistas de validación y versión final del producto[cite: 24].
+
+```{=typst}
+#pagebreak()
+```
+
+```{=typst}
+#pagebreak()
+#set par(hanging-indent: 1.5em)
+```
+
+# Bibliografía
+
+Atlassian. (2020). *Gitflow workflow tutorial*. Atlassian Git Tutorials. https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow[cite: 25]
+
+Bateni, H. (2012). Changes in balance in people with lower limb amputation using telemedicine-based rehabilitation. *Telemedicine and e-Health*, 18(7), 548–554. https://doi.org/10.1089/tmj.2011.0238[cite: 25]
+
+Congreso de la República del Perú. (2011, 3 de julio). *Ley N.° 29733: Ley de Protección de Datos Personales*. Diario Oficial El Peruano. https://www.minjus.gob.pe/wp-content/uploads/2014/02/Cartilla-Funciones.pdf[cite: 25]
+
+Conventional Commits. (2022). *Conventional Commits 1.0.0: A specification for adding human and machine readable meaning to commit messages*. https://www.conventionalcommits.org/en/v1.0.0/[cite: 25]
+
+Driessen, V. (2010, 5 de enero). *A successful Git branching model*. nvie.com. https://nvie.com/posts/a-successful-git-branching-model/[cite: 25]
+
+Gailey, R., Allen, K., Castles, J., Kucharik, J., & Roeder, M. (2008). Review of secondary physical conditions associated with lower-limb amputation and long-term prosthesis use. *Journal of Rehabilitation Research and Development*, 45(1), 15–30. https://doi.org/10.1682/JRRD.2006.11.0147[cite: 25]
+
+Google. (2024). *Google HTML/CSS Style Guide*. Google GitHub Style Guides. https://google.github.io/styleguide/htmlcssguide.html[cite: 25]
+
+Google Search Central. (2024). *Robots meta tag, data-nosnippet, and X-Robots-Tag specifications*. Google Developers. https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag[cite: 25]
+
+Instituto Nacional de Estadística e Informática. (2014). *Primera Encuesta Nacional Especializada sobre Discapacidad (ENEDIS 2012): Resumen ejecutivo*. INEI. https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1171/ENEDIS%202012%20-%20COMPLETO.pdf[cite: 25]
+
+Ottobock SE & Co. KGaA. (2024). *Digital solutions and orthotic care overview*. Ottobock Global. https://www.ottobock.com/[cite: 25]
+
+Preston-Werner, T. (2013). *Semantic Versioning 2.0.0*. https://semver.org/spec/v2.0.0.html[cite: 25]
+
+World Health Organization. (2017). *WHO standards for prosthetics and orthotics*. World Health Organization. https://www.who.int/publications/i/item/9789241512480[cite: 25]
+
+World Wide Web Consortium. (2018). *Web Content Accessibility Guidelines (WCAG) 2.1* (W3C Recommendation). W3C. https://www.w3.org/TR/WCAG21/[cite: 25]
+
+```{=typst}
+#set par(hanging-indent: 0em)
+#pagebreak()
+```
+
+```{=typst}
+#pagebreak()
+```
+
+# Anexos
+
+### Enlaces de Evidencias Audiovisuales y Exposiciones
+
+* **Exposición Hito AV1:**  
+  [Ver grabación en OneDrive/SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241i469_upc_edu_pe/IQDqhAqZpAyeR5ceLW2ZlHXYAe9KDSyisVNcXhKU1fc8GPE?e=YVZ80N)[cite: 26]
+
+* **Exposición Hito TB1:**  
+  *(Pendiente de adjuntar enlace de sustentación TB1)*[cite: 26]
+
+* **Video Explicativo de la Landing Page:**  
+  [Ver video explicativo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241i469_upc_edu_pe/IQDlZXDCog1hSZahgdohxRyZAUDE54ZWuqHOa2_hl9PXBZ0?e=IQIjez)[cite: 26]
+
+* **Video de Navegación del Prototipo:**  
+  [Ver flujo interactivo en Figma](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241i469_upc_edu_pe/IQBrWctxdhvqS5eny_ZvVn_MASUXQFA7N_7C3_EMiJk3FeQ?e=DdLokI)[cite: 26]
+
+---
+
+### Evidencias de Entrevistas (Needfinding)
+
+* **Entrevistas - Grabación Parte 1:**  
+  [Ver grabaciones en OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241i469_upc_edu_pe/IQC81Hz0hs9_QpIxWhYZ-TjAAZf92aSnv0wk24MMSoN7wl8?e=bn9ByD)[cite: 26]
+
+* **Entrevistas - Grabación Parte 2:**  
+  [Ver grabaciones en OneDrive](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241i469_upc_edu_pe/IQA_9jwIEEgTT4TH9ExhYDXBAStBqIjWMSpQZy_NVhKqW4s?e=Tad25u)[cite: 26]
+
+---
+
+### Tableros Ágiles de Trabajo (Trello)
+
+* **Tablero General del Product Backlog:**  
+  [Acceder al tablero en Trello](https://trello.com/invite/b/6aaa2414fe1250572c17b9fe/ATTIe7f0872c34d6ae28c8540edd005e015fC1DFC2EC/seniors-in-process-prothia)[cite: 26]
+
+* **Tablero Sprint Backlog 1:**  
+  [Acceder al tablero en Trello](https://trello.com/invite/b/6aabb55b023122d8fe598ee0/ATTI98b4a9da9fc821f35855872e0885a87cFED1E6E2/seniorsinprocess-prothia-sprint-1)[cite: 26]
+
+* **Tablero Sprint Backlog 2:**  
+  [Acceder al tablero en Trello](https://trello.com/invite/b/6ac4c443ac48cfe5f3483422/ATTI5559667781037e2f809ea13a3cfc44a317501C04/seniorsinprocess-prothia-sprint-backlog-2)[cite: 26]
