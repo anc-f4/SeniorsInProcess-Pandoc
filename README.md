@@ -1130,3 +1130,438 @@ Para mantener el proyecto organizado, se empleó la escala de Fibonacci (1, 2, 3
 ```{=typst}
 #pagebreak()
 ```
+
+```{=typst}
+#pagebreak()
+```
+
+# Capítulo IV: Product Design
+
+## 4.1. Style Guidelines
+
+### 4.1.1. General Style Guidelines
+
+* **Branding:** Identidad centrada en la salud digital y la biomecánica, orientada a reducir la brecha de información entre pacientes amputados, clínicas de rehabilitación y centros ortopédicos.
+* **Typography:** La tipografía seleccionada es Montserrat para títulos y elementos destacados, por su claridad y estructura moderna. Para el cuerpo de texto se utiliza Inter a 14px con un interlineado de 1.5, garantizando una lectura fluida de los datos médicos. Los tamaños se adaptan al contexto web según la jerarquía: títulos, subtítulos y párrafos.
+
+  * **Escala:**
+    ![](../SeniorsInProcess-Pandoc/assets/Escala.png){ width=50% }
+
+  * **Weights:**
+    ![](../SeniorsInProcess-Pandoc/assets/Weights.png){ width=35% }
+
+  * **Nomenclatura:**
+    ![](../SeniorsInProcess-Pandoc/assets/Nomenclatura.png){ width=50% }
+
+  * **Example:**
+    ![](../SeniorsInProcess-Pandoc/assets/Example.png){ width=85% }
+
+* **Colors:** La paleta de colores de Prothia prioriza la confianza médica, la tecnología y el progreso. El Azul Profundo transmite estabilidad y profesionalismo, usado en textos y fondos principales. El Teal (Verde Azulado) simboliza innovación y eficiencia, ideal para acentos y gráficos biomecánicos. El Verde Esmeralda incrementa la sensación de logro, siendo ideal para captar estados positivos o metas de rehabilitación cumplidas. Finalmente, el Gris Claro aporta orden y limpieza, usado en fondos secundarios y contenedores.
+
+* **Spacing:** El espaciado está diseñado para ofrecer una experiencia clara y ordenada, facilitando la lectura de historiales técnicos y datos biomecánicos en tiempo real:
+  * Entre secciones principales: mínimo 24px para marcar el cambio de contexto clínico.
+  * Entre encabezados y párrafos: 16px para reforzar jerarquía visual.
+  * Entre párrafos consecutivos: 14px para mantener continuidad y evitar bloques densos.
+  * Espaciado de botones e inputs: mínimo 10px entre elementos para garantizar usabilidad, especialmente en dispositivos móviles.
+
+* **Tono de comunicación:** Prothia transmite profesionalismo, empatía y proactividad, claves para un sistema que acompaña la adaptación a una prótesis:
+  * Profesional y analítico, de modo que sea comprensible para clínicas de rehabilitación y centros ortopédicos.
+  * Preventivo y confiable, orientado a alertar sobre posturas incorrectas sin generar alarma innecesaria.
+  * Empático y cercano, resaltando que la plataforma está diseñada para apoyar al paciente en su rutina diaria.
+
+* **Lenguaje aplicado:**
+  * Claro y directo, evitando tecnicismos ortopédicos complejos en la vista del paciente.
+  * Orientado a la acción, con instrucciones breves para los ejercicios de rehabilitación.
+  * Consistente en terminología médica, garantizando coherencia en alertas, reportes de desempeño y documentación técnica.
+
+---
+
+### 4.1.2. Web Style Guidelines
+
+Elegimos una paleta basada en Azul Profundo, Teal / Verde Azulado, Verde Esmeralda y Gris Claro, porque queremos representar los valores de profesionalismo médico, tecnología, progreso y confianza. El Azul Profundo transmite estabilidad clínica y rigor, siendo el color principal de fondos de cabecera y tipografías para garantizar un alto contraste. El Teal simboliza la salud digital y la innovación, y es utilizado en botones primarios, elementos interactivos y trazados de gráficos biomecánicos. El Verde Esmeralda se reserva para indicadores de éxito, como la confirmación de ejercicios completados o posturas correctas. Finalmente, el Gris Claro se emplea como color de fondo en los dashboards, ofreciendo un lienzo limpio que evita la fatiga visual al revisar historiales clínicos y reportes de uso prolongado.
+
+El uso balanceado de estos tonos asegura que la información clave, como las alertas de posturas inadecuadas o avisos de mantenimiento preventivo, sea rápidamente perceptible sin perder sobriedad visual. Los contrastes se aplican estratégicamente para mantener un diseño ordenado, moderno y fácil de interpretar por los tres actores del sistema: pacientes, profesionales de rehabilitación y técnicos ortopédicos.
+
+En cuanto a la tipografía, dado que Prothia gestiona datos biomecánicos, historiales técnicos y programas de ejercicios, optamos por fuentes claras y contemporáneas. Montserrat se utiliza en títulos y encabezados para dar una estructura moderna y sólida, mientras que Inter se aplica en los cuerpos de texto y tablas de datos para maximizar la legibilidad. Los tamaños son lo suficientemente grandes para asegurar claridad en las métricas, utilizando variaciones de peso para guiar la atención del usuario en las pantallas de monitoreo.
+
+![](../SeniorsInProcess-Pandoc/assets/Colors.png){ width=50% }
+
+* **Tipografía:** Se respetará la relación tipográfica y jerarquía establecida en los General Style Guidelines, combinando Montserrat e Inter.
+* **Responsive Design Standards:** Prothia está diseñado con una arquitectura adaptable para satisfacer los distintos contextos de uso de sus usuarios:
+  * **Mobile (360px – 768px):** Navegación tipo hamburguesa, tarjetas de ejercicios apiladas en columna y botones grandes para uso con una sola mano.
+  * **Tablet (769px – 1024px):** Layout en 2 columnas y menú lateral colapsable para técnicos en taller.
+  * **Desktop (1025px en adelante):** Menú principal persistente y dashboards clínicos en 3 columnas para visualización simultánea de gráficos y alertas.
+
+* **Interactivity:**
+  * **Botones:** Bordes redondeados en 8px, hover con transición suave y elevación sutil.
+  * **Transiciones y animaciones:** Duración de 200–300ms con curva ease-in-out.
+* **Accessibility:** Cumplimiento de pautas WCAG 2.1 AA con contraste mínimo 4.5:1, navegación por teclado y etiquetas aria para lectores de pantalla.
+* **UI Consistency:** Iconografía homogénea, grilla base de 8px y paleta semántica estandarizada.
+
+---
+
+## 4.2. Information Architecture
+
+### 4.2.1. Organization Systems
+
+Para estructurar la gran cantidad de datos médicos y de sensores, Prothia utiliza los siguientes sistemas de organización:
+
+* **Organización Jerárquica:** Utilizada en los dashboards principales, donde se prioriza mostrar en la parte superior las alertas críticas (posturas incorrectas o mantenimientos urgentes), seguidas por los resúmenes de progreso biomecánico y, finalmente, los historiales detallados.
+* **Organización Secuencial:** Aplicada en los flujos de tareas paso a paso, como el registro de los datos clínicos de un paciente, la asociación de una prótesis a un usuario o la asignación de un plan de ejercicios.
+* **Organización Matricial:** Empleada en las vistas de analítica, permitiendo a los profesionales de rehabilitación cruzar datos de adherencia a los ejercicios con métricas de simetría de apoyo o cadencia a lo largo del tiempo.
+
+### 4.2.2. Labeling Systems
+
+El sistema de etiquetado en Prothia está diseñado para reducir la carga cognitiva, utilizando un lenguaje ubicuo que sea familiar tanto para el personal clínico como para el paciente en su hogar:
+
+* **Navegación global:** Inicio, Pacientes, Prótesis, Monitoreo, Alertas, Mensajes.
+* **Landing Page:** Soluciones, Para Clínicas, Para Ortopedias, Para Pacientes, Contacto.
+* **Gestión de rehabilitación (Clínicas):** Asignar plan, Progreso de rehabilitación, Historial biomecánico.
+* **Gestión técnica (Ortopedias):** Historial de uso, Programar mantenimiento, Estado del dispositivo.
+* **Acciones del usuario:** Registrar paciente, Asociar prótesis, Generar reporte, Enviar mensaje, Configurar umbrales.
+
+### 4.2.3. SEO Tags and Meta Tags
+
+* **Landing Page (Sitio Web Estático):**
+  * **Title:** Prothia | Biomechanical Telemetry & Rehabilitation Platform
+  * **Meta Description:** Prothia connects amputee patients, rehabilitation clinics, and orthopedic centers to optimize remote tracking, analyze biomechanical telemetry, and manage prosthetic maintenance.
+  * **Meta Keywords:** biomechanical telemetry, prosthetic rehabilitation, amputee patient, smart prosthetics, clinical telerehabilitation, gait analysis, socket comfort, orthopedic maintenance, digital health, IoT healthcare
+  * **Meta Author:** SeniorsInProcess
+  * **Meta Robots:** index, follow
+  * **Open Graph:** `og:type`: website | `og:url`: https://www.prothia.tech | `og:image`: https://www.prothia.tech/assets/Logo.png
+
+* **Web Application (Aplicación Web Transaccional):**
+  * **Title:** Prothia App | Clinical Telemetry & Prosthetic Management
+  * **Meta Description:** Access the Prothia clinical portal to monitor real-time gait telemetry, manage patient exercise adherence, and track prosthetic mechanical durability.
+  * **Meta Author:** SeniorsInProcess
+  * **Meta Robots:** noindex, nofollow (resguardo de confidencialidad médica)
+
+### 4.2.4. Searching Systems
+
+El sistema de búsqueda permite a los usuarios localizar información relevante mediante:
+* Palabras clave (nombres de pacientes, modelo de prótesis o personal tratante).
+* Filtros cronológicos por fechas de sesiones o mantenimientos técnicos.
+* Estados de registro (activo, en rehabilitación, completado o en mantenimiento).
+* Búsqueda unívoca por DNI, historia clínica o número de serie de componentes.
+
+### 4.2.5. Navigation Systems
+
+* **Primera Navegación (Header Persistente):** Menú global fijado con enlaces principales, alternancia idiomática (ES / EN) y acceso al registro.
+  ![](../SeniorsInProcess-Pandoc/assets/Primera-Navegacion.png){ width=90% }
+
+* **Segunda Navegación (Hero Section con CTA):** Presentación directa de la propuesta de valor y acceso al formulario de onboarding.
+  ![](../SeniorsInProcess-Pandoc/assets/Segunda-Navegacion.png){ width=90% }
+
+* **Tercera Navegación (Footer Estructurado):** Pie de página categorizado con enlaces a políticas de privacidad, normativas de cifrado AES-256 y accesibilidad WCAG 2.1 AA.
+  ![](../SeniorsInProcess-Pandoc/assets/Tercera-Navegacion.png){ width=90% }
+
+---
+
+## 4.3. Landing Page UI Design
+
+La Landing Page comunica la propuesta de valor integral del producto, exponiendo el ecosistema biomecánico continuo y captando prospectos comerciales institucionales.
+
+### 4.3.1. Landing Page Wireframe
+
+Wireframe integral desarrollado en Figma con distribución modular y puntos de conversión:
+
+![](../SeniorsInProcess-Pandoc/assets/Wireframe_-_Landing_Page.png){ width=95% }
+
+*Enlace Figma:* https://www.figma.com/design/dqRIVk8vPGYi9k3EEpfijS/Sin-t%C3%ADtulo?node-id=0-1
+
+### 4.3.2. Landing Page Mock-up
+
+Mock-up en alta fidelidad aplicando la paleta de colores y componentes interactivos finales:
+
+![](../SeniorsInProcess-Pandoc/assets/Mockup_-_Landing_Page.png){ width=95% }
+
+*Enlace Figma:* https://www.figma.com/design/dqRIVk8vPGYi9k3EEpfijS/Sin-t%C3%ADtulo?node-id=19-3
+
+---
+
+## 4.4. Web Applications UX/UI Design
+
+### 4.4.1. Web Applications Wireframes (Desktop Web Browser)
+
+![](../SeniorsInProcess-Pandoc/assets/Wireframe-AppWeb1.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/Wireframe-AppWeb2.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/Wireframe-AppWeb3.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/Wireframe-AppWeb4.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/Wireframe-AppWeb5.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/Wireframe-AppWeb6.png){ width=85% }
+
+*Enlace Figma Wireframes:* https://www.figma.com/design/dqRIVk8vPGYi9k3EEpfijS/Sin-t%C3%ADtulo?node-id=10-2
+
+---
+
+### 4.4.2. Web Applications Wireflow Diagrams
+
+**Segmento: Paciente Amputado**
+
+![](../SeniorsInProcess-Pandoc/assets/wire1.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire2.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire3.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire4.png){ width=85% }
+
+\
+
+**Segmento: Profesionales de Terapia Física y Rehabilitación**
+
+![](../SeniorsInProcess-Pandoc/assets/wire5.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire6.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire7.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire8.png){ width=85% }
+
+\
+
+**Segmento: Técnicos Ortoprotesistas**
+
+![](../SeniorsInProcess-Pandoc/assets/wire9.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire10.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire11.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/wire12.png){ width=85% }
+
+---
+
+### 4.4.3. Web Applications Mock-ups (Desktop Web Browser)
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup1.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup2.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup3.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup4.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup5.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup6.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup7.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup8.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup9.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup10.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup11.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup12.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup13.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup14.png){ width=85% }
+
+\
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup15.png){ width=85% }
+
+*Enlace Figma Mock-ups:* https://www.figma.com/design/dqRIVk8vPGYi9k3EEpfijS/Sin-t%C3%ADtulo?node-id=10-2
+
+---
+
+### 4.4.4. Web Applications User Flow Diagrams
+
+* **USER FLOW 01: Registrar la realización de los ejercicios indicados para llevar constancia de su adherencia**
+  ![](../SeniorsInProcess-Pandoc/assets/USER_FLOW_1.png){ width=90% }
+
+\
+
+* **USER FLOW 02: Visualizar un dashboard con los datos biomecánicos recientes de un paciente para evaluar su desempeño**
+  ![](../SeniorsInProcess-Pandoc/assets/USER_FLOW_2.png){ width=90% }
+
+\
+
+* **USER FLOW 03: Programar una fecha de mantenimiento preventivo para una prótesis para anticiparse a posibles fallas**
+  ![](../SeniorsInProcess-Pandoc/assets/USER_FLOW_3.png){ width=90% }
+
+---
+
+## 4.5. Web Applications Prototyping
+
+* **Prototipo navegable en Figma:** https://tinyurl.com/2x48v884
+* **Video demostrativo del flujo de interacción:** https://tinyurl.com/mtpua6jk
+
+![](../SeniorsInProcess-Pandoc/assets/AppWebMockup11.png){ width=90% }
+
+```{=typst}
+#pagebreak()
+```
+```{=typst}
+#pagebreak()
+```
+
+## 4.6. Domain-Driven Software Architecture
+
+### 4.6.1. Design-Level EventStorming
+
+Para pasar del entendimiento general del negocio al diseño de la arquitectura del software, se desarrolló un Design-Level Event Storming en tres etapas consecutivas: identificación de Pivotal Points, modelado de Aggregates y delimitación de Bounded Contexts.
+
+#### Paso 1: Identificación de Eventos Clave y los Pivotal Points
+
+![](../SeniorsInProcess-Pandoc/assets/Pivotal%20Points.jpg){ width=95% }
+
+\
+
+#### Paso 2: Modelado de Agregados y Comandos
+
+![](../SeniorsInProcess-Pandoc/assets/Aggregates.jpg){ width=95% }
+
+\
+
+#### Paso 3: Delimitación de Contextos e Integraciones
+
+![](../SeniorsInProcess-Pandoc/assets/Bounded%20Contexts.jpg){ width=95% }
+
+*Tablero Miro:* https://miro.com/app/board/uXjVHm-Fti8=/?share_link_id=426808403513
+
+---
+
+## 4.6.2. Software Architecture Context Diagram
+
+El Context Diagram representa a Prothia como un único sistema de software y muestra a los principales actores y sistemas externos con los que interactúa. Los actores considerados son Visitor, Patient, Healthcare Professional (Médico/Fisioterapeuta), Orthopedic Technician (Técnico Ortopédico), Clinic Administrator y Orthopedic Center Admin, de acuerdo con las interacciones principales representadas en la solución. Esta separación permite reflejar las responsabilidades relacionadas con la consulta pública del Landing Page, el seguimiento de rehabilitación, el monitoreo clínico, la gestión técnica de prótesis y la administración de suscripciones institucionales.
+
+Como sistemas externos se consideran Payment Gateway, Email Service, Prosthesis Biomechanical Sensors (IMU) y External Orthopedic Workshop Systems. El Payment Gateway procesa los pagos asociados a suscripciones y licencias; el Email Service soporta recuperación de contraseña y comunicaciones transaccionales; los sensores biomecánicos suministran la telemetría utilizada durante el monitoreo del paciente; y los sistemas de centros ortopédicos externos reciben reportes clínicos cifrados e interconsultas.
+
+**C4 System Context Diagram de Prothia:**
+
+![](../SeniorsInProcess-Pandoc/assets/c4-system-context-diagram-prothia.png){ width=95% }
+
+---
+
+## 4.6.3. Software Architecture Container Diagrams
+
+La solución se distribuye en cuatro containers principales: Landing Page, Web Application, RESTful API y Relational Database. La Landing Page utiliza HTML5, CSS3 y JavaScript para presentar el modelo de negocio y captar solicitudes públicas. La Web Application utiliza Vue 3, PrimeVue y TypeScript/JavaScript para proporcionar las experiencias autenticadas de los diferentes roles. El RESTful API utiliza ASP.NET Core, C# y Entity Framework Core para exponer servicios, aplicar reglas de negocio y coordinar persistencia e integraciones. La información relacional se almacena en PostgreSQL 16.
+
+Los CTA de la Landing Page redirigen hacia la Web Application. Tanto los formularios públicos como la Web Application se comunican con el RESTful API mediante HTTPS y JSON. El RESTful API es el único container que accede a la base de datos y a los servicios externos.
+
+**C4 Container Diagram de Prothia:**
+
+![](../SeniorsInProcess-Pandoc/assets/c4-container-diagram-prothia.png){ width=95% }
+
+---
+
+## 4.6.4. Software Architecture Components Diagrams
+
+### Landing Page Components
+
+La Landing Page se descompone en Hero & Value Proposition Section, Segment Solutions Section, Pricing & Plans Section, Lead Capture & Newsletter Forms, Landing API Client e Internationalization & Accessibility. Los CTA dirigen a los visitantes hacia la experiencia correspondiente de la Web Application, mientras que los formularios utilizan Landing API Client para registrar información mediante el RESTful API.
+
+**C4 Component Diagram - Landing Page:**
+
+![](../SeniorsInProcess-Pandoc/assets/c4-component-diagram-landing-page.png){ width=90% }
+
+\
+
+### Web Application Components
+
+La Web Application separa Authentication & Security UI, Patient Rehabilitation Portal, Therapist Clinical Dashboard UI, Orthopedic Fleet & Workshop UI y Subscription & Billing Management UI. Todas estas experiencias utilizan Centralized API Client para la comunicación asíncrona mediante Axios y Pinia, y comparten recursos de Internationalization & Accessibility, manteniendo una única vía de comunicación con el RESTful API.
+
+**C4 Component Diagram - Web Application:**
+
+![](../SeniorsInProcess-Pandoc/assets/c4-component-diagram-web-application.png){ width=90% }
+
+\
+
+### RESTful API Components
+
+El RESTful API organiza sus componentes principales de acuerdo con los Bounded Contexts identificados en el Design-Level EventStorming: Patients, Prescription, Monitoring, Analytics, Workshop, Communication, Identity & Access Management y Subscriptions & Billing.
+
+* **Patients Component:** administra admisión clínica de pacientes, verificación de DNI, asignación de nivel funcional K (K0-K4), validación de cupos y vinculación de prótesis.
+* **Prescription Component:** gestiona prescripción terapéutica, selección de ejercicios, dosificación de series/repeticiones y publicación de planes domiciliarios.
+* **Monitoring Component:** procesa la ingesta de telemetría a 100 Hz, calibración en cero angular, evaluación de umbrales biomecánicos y ciclo de vida de alertas clínicas.
+* **Analytics Component:** consolida series temporales de marcha y adherencia, generación de informes clínicos con firma digital y colegiatura, y exportación de datasets CSV.
+* **Workshop Component:** gestiona el parque de prótesis, sincronización de ciclos de uso, conmutación por fatiga crítica y órdenes de trabajo de taller.
+* **Communication Component:** configura módulos confidenciales para anonimización y transmite reportes cifrados a centros ortopédicos externos.
+* **Identity & Access Management:** concentra registro, autenticación JWT, roles y sesiones de usuario.
+* **Subscriptions & Billing:** administra planes institucionales, licencias y pagos B2B.
+* **Persistence & Gateway Layer:** concentra el acceso mediante Entity Framework Core hacia PostgreSQL y encapsula la comunicación con pasarelas de pago y servicios de correo.
+
+**C4 Component Diagram - RESTful API:**
+
+![](../SeniorsInProcess-Pandoc/assets/c4-component-diagram-restful-api.png){ width=90% }
+
+\
+
+### Relational Database Components
+
+El container Relational Database se organiza mediante separación lógica de datos. Los esquemas `patients`, `prescription`, `monitoring`, `analytics`, `workshop`, `communication`, `identity_access`, `subscriptions_payments` y `public_leads` corresponden a los Bounded Contexts y módulos de soporte identificados en el diseño.
+
+Esta organización permite conservar límites de responsabilidad a nivel de persistencia aun cuando PostgreSQL sea desplegado inicialmente como una única instancia.
+
+**C4 Component Diagram - Relational Database:**
+
+![](../SeniorsInProcess-Pandoc/assets/c4-component-diagram-relational-database.png){ width=90% }
+
+```{=typst}
+#pagebreak()
+```
